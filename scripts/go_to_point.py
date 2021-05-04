@@ -70,18 +70,18 @@ class GoalReachingAction(object):
         self._feedback.updated_theta = yaw_
 
         # publish info to the console for the user
-        rospy.loginfo(
-            ' Robot Position: %f %f, Robot orientation: %f ' %
-            (self._feedback.updated_x,
-             self._feedback.updated_y,
-             self._feedback.updated_theta))
+        #rospy.loginfo(
+            #' Robot Position: %f %f, Robot orientation: %f ' %
+            #(self._feedback.updated_x,
+            # self._feedback.updated_y,
+            # self._feedback.updated_theta))
 
         # start executing the action
         desired_position = Point()
-        desired_position.x = self._goal.x
-        desired_position.y = self._goal.y
-        des_yaw = self._goal.theta
-        change_state(0)
+        desired_position.x = goal.x
+        desired_position.y = goal.y
+        des_yaw = goal.theta
+        self.change_state(0)
 
         while True:
             if self._as.is_preempt_requested():
@@ -95,31 +95,31 @@ class GoalReachingAction(object):
             # publish the feedback
             self._as.publish_feedback(self._feedback)
             if state_ == 0:
-                fix_yaw(desired_position)
+                self.fix_yaw(desired_position)
             elif state_ == 1:
-                go_straight_ahead(desired_position)
+                self.go_straight_ahead(desired_position)
             elif state_ == 2:
-                fix_final_yaw(des_yaw)
+                self.fix_final_yaw(des_yaw)
             elif state_ == 3:
-                done()
+                self.done()
                 break
-            return True
+         
 
-    def change_state(state):
+    def change_state(self,state):
         global state_
         state_ = state
         print('State changed to [%s]' % state_)
 
-    def normalize_angle(angle):
+    def normalize_angle(self,angle):
         if(math.fabs(angle) > math.pi):
             angle = angle - (2 * math.pi * angle) / (math.fabs(angle))
         return angle
 
-    def fix_yaw(des_pos):
+    def fix_yaw(self,des_pos):
         desired_yaw = math.atan2(
             des_pos.y - position_.y,
             des_pos.x - position_.x)
-        err_yaw = normalize_angle(desired_yaw - yaw_)
+        err_yaw = self.normalize_angle(desired_yaw - yaw_)
         rospy.loginfo(err_yaw)
         twist_msg = Twist()
         if math.fabs(err_yaw) > yaw_precision_2_:
@@ -132,16 +132,16 @@ class GoalReachingAction(object):
         # state change conditions
         if math.fabs(err_yaw) <= yaw_precision_2_:
             #print ('Yaw error: [%s]' % err_yaw)
-            change_state(1)
+            self.change_state(1)
 
-    def go_straight_ahead(des_pos):
+    def go_straight_ahead(self,des_pos):
         desired_yaw = math.atan2(
             des_pos.y - position_.y,
             des_pos.x - position_.x)
         err_yaw = desired_yaw - yaw_
         err_pos = math.sqrt(pow(des_pos.y - position_.y, 2) +
                             pow(des_pos.x - position_.x, 2))
-        err_yaw = normalize_angle(desired_yaw - yaw_)
+        err_yaw = self.normalize_angle(desired_yaw - yaw_)
         rospy.loginfo(err_yaw)
         if err_pos > dist_precision_:
             twist_msg = Twist()
@@ -152,14 +152,14 @@ class GoalReachingAction(object):
             pub_.publish(twist_msg)
         else:  # state change conditions
             #print ('Position error: [%s]' % err_pos)
-            change_state(2)
+            self.change_state(2)
         # state change conditions
         if math.fabs(err_yaw) > yaw_precision_:
             #print ('Yaw error: [%s]' % err_yaw)
-            change_state(0)
+            self.change_state(0)
 
-    def fix_final_yaw(des_yaw):
-        err_yaw = normalize_angle(des_yaw - yaw_)
+    def fix_final_yaw(self,des_yaw):
+        err_yaw = self.normalize_angle(des_yaw - yaw_)
         rospy.loginfo(err_yaw)
         twist_msg = Twist()
         if math.fabs(err_yaw) > yaw_precision_2_:
@@ -172,9 +172,9 @@ class GoalReachingAction(object):
         # state change conditions
         if math.fabs(err_yaw) <= yaw_precision_2_:
             #print ('Yaw error: [%s]' % err_yaw)
-            change_state(3)
+            self.change_state(3)
 
-    def done():
+    def done(self):
         twist_msg = Twist()
         twist_msg.linear.x = 0
         twist_msg.angular.z = 0
@@ -186,7 +186,7 @@ class GoalReachingAction(object):
 def main():
     global pub_
     rospy.init_node('go_to_point')
-    server = GoalReachingAction(rospy.get_name())
+    server = GoalReachingAction('go_to_point')
     pub_ = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
     sub_odom = rospy.Subscriber('/odom', Odometry, clbk_odom)
     rospy.spin()
