@@ -17,43 +17,65 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
+
 #find_package(<dependency> REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rclcpp_components REQUIRED)
+find_package(example_interfaces REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
 
+
+ rosidl_generate_interfaces(${PROJECT_NAME}
+  "srv/Position.srv"
+  "srv/RandomPosition.srv"
+  "srv/Command.srv"
+ )
+
+ 
 add_library(positionService_component SHARED
 src/position_service.cpp)
+
+rclcpp_components_register_node(positionService_component
+    PLUGIN "rt2_assignment1::Position_Service"
+    EXECUTABLE comp_positionService)
+    
+ament_target_dependencies(positionService_component rclcpp rclcpp_components std_msgs)
+
+rosidl_target_interfaces(positionService_component
+  ${PROJECT_NAME} "rosidl_typesupport_cpp")
+  
 add_library(stateMachine_component SHARED
 src/state_machine.cpp)
 
-rclcpp_components_register_node(positionService_component
-    PLUGIN "rt2_assignment1::MinimalServer"
-    EXECUTABLE comp_positionService)
 
 rclcpp_components_register_node(stateMachine_component
-    PLUGIN "rt2_assignment1::MinimalSubscriber"
+    PLUGIN "rt2_assignment1::FSM"
     EXECUTABLE comp_stateMachine)
 
-ament_target_dependencies(positionService_component rclcpp rclcpp_components std_msgs)
+
 ament_target_dependencies(stateMachine_component rclcpp rclcpp_components std_msgs)
 
+
+rosidl_target_interfaces(stateMachine_component
+  ${PROJECT_NAME} "rosidl_typesupport_cpp")
+  
 install(TARGETS
-positionService_component
-stateMachine_component
-DESTINATION lib/${PROJECT_NAME}
-LIBRARY DESTINATION lib)
+	positionService_component
+	stateMachine_component
+	comp_stateMachine
+	comp_positionService
+	DESTINATION lib/${PROJECT_NAME}
+	LIBRARY DESTINATION lib)
 
 install(
-DIRECTORY launch
-DESTINATION share/${PROJECT_NAME}
+    DIRECTORY launch
+    DESTINATION share/${PROJECT_NAME}
 )
 
 install(
-FILES mapping_rules.yaml
-DESTINATION share/${PROJECT_NAME})
+   FILES mapping_rules.yaml
+   DESTINATION share/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

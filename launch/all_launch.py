@@ -12,11 +12,11 @@ def generate_launch_description():
             composable_node_descriptions=[
                 ComposableNode(
                     package='rt2_assignmennt1',
-                    plugin='rt2_assignmennt1::MinimalServer',
-                    name='Position'),
+                    plugin='rt2_assignmennt1::Position_Service',
+                    name='Random'),
                 ComposableNode(
                     package='rt2_assignmennt1',
-                    plugin='rt2_assignmennt1::MinimalSubscriber',
+                    plugin='rt2_assignmennt1::FSM',
                     name='FSM')
             ],
             output='screen',
