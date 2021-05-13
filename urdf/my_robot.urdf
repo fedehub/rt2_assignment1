@@ -38,7 +38,7 @@
     </plugin>
   </gazebo>
   <!-- camera -->
-  <gazebo reference="camera_link">
+  <!--<gazebo reference="camera_link">
     <sensor name="camera1" type="camera">
       <update_rate>30.0</update_rate>
       <camera name="head">
@@ -73,7 +73,7 @@
         <distortionT2>0.0</distortionT2>
       </plugin>
     </sensor>
-  </gazebo>
+  </gazebo>-->
   <material name="black">
     <color rgba="0.0 0.0 0.0 1.0"/>
   </material>
