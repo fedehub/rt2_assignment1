@@ -38,10 +38,10 @@ public:
       RCLCPP_ERROR(this->get_logger(), "client_2 interrupted while waiting for service to appear.");
       return;
     }
+     RCLCPP_INFO(this->get_logger(), "waiting for service to appear...");
+    }
 
-    RCLCPP_INFO(this->get_logger(), "waiting for service to appear..."); }
-
-    this->state_mach();
+    //this->state_mach();
   }
 
   
@@ -49,7 +49,8 @@ public:
 private:
   bool  start = false;
   void state_mach(){
-	   this->start = false;
+            if (this->start){
+	   std::cout<<"inside the state machine"<<std::endl;
 	   auto request_1 = std::make_shared<rt2_assignment1::srv::Position::Request>();
 	  // auto response_1 = std::make_shared<rt2_assignment1::srv::Position::Response>();
 	   auto request_2 = std::make_shared<rt2_assignment1::srv::RandomPosition::Request>();
@@ -58,28 +59,34 @@ private:
 	   request_2->x_min = -5.0;
 	   request_2->y_max = 5.0;
 	   request_2->y_min = -5.0;
-	   using ServiceResponseFuture =
-	   rclcpp::Client<rt2_assignment1::srv::RandomPosition>::SharedFuture;
-	   auto response_received_callback = [this](ServiceResponseFuture future) {
-	              
-		      this->response_2->y=future.get()->y;
-		      this->response_2->theta=future.get()->theta;
-		      this->response_2->x=future.get()->x;
+	   std::cout<<"write rndm msg"<<std::endl;
+	  // using ServiceResponseFuture =
+	   //rclcpp::Client<rt2_assignment1::srv::RandomPosition>::SharedFuture;
+	   auto response_received_callback = [this](rclcpp::Client<rt2_assignment1::srv::RandomPosition>::SharedFuture future) {
+	              std::cout<<"received random response"<<std::endl;
+		      this->response_2=future.get();
+		      //this->response_2->theta=future.get()->theta;
+		      //this->response_2->x=future.get()->x;
     	   };
            auto future_result = client_2->async_send_request(request_2, response_received_callback);
 	   
-	   while(rclcpp::ok()){
+	  
 	   	
-	   	if (this->start){
+	   
 	   		
 	   		request_1->x = this->response_2->x;
 	   		request_1->y = this->response_2->y;
 	   		request_1->theta = this->response_2->theta;
 	   		std::cout << "\nGoing to the position: x= " << request_1->x << " y= " <<request_1->y << " theta = " <<request_1->theta << std::endl;
-	   		auto result_1 = client_1->async_send_request(request_1);
-	   		std::cout << "Position reached" << std::endl;
+	   		auto response_received_callback2 = [this](rclcpp::Client<rt2_assignment1::srv::Position>::SharedFuture future) {
+	                     (void)future;
+	                    std::cout << "Position reached" << std::endl;
+		     
+    	               };
+	   		auto result_1 = client_1->async_send_request(request_1, response_received_callback2);
+	   		this->state_mach();
 	   	}
-	   }
+	  
   }
 
   void handle_service(
@@ -88,14 +95,21 @@ private:
   const std::shared_ptr<rt2_assignment1::srv::Command::Response> response)
   {
   (void)request_header;
-  (void)response;
+  //(void)response;
      if (request->command == "start"){
+        std::cout<<"start is true"<<std::endl;
     	this->start = true;
+    	response->ok=true;
+    	this->state_mach();
     }
     else {
     	this->start = false;
-    }}
-
+    	response->ok=true;
+    	std::cout<<"close"<<std::endl;
+    }
+   // response->ok=true;
+    }
+    
   rclcpp::Service<rt2_assignment1::srv::Command>::SharedPtr service_; // service var: pointer to rclcpp service
   rclcpp::Client<rt2_assignment1::srv::Position>::SharedPtr client_1; // service var: pointer to rclcpp service
   rclcpp::Client<rt2_assignment1::srv::RandomPosition>::SharedPtr client_2; // service var: pointer to rclcpp service

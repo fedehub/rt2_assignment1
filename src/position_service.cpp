@@ -29,9 +29,11 @@ private:
   const std::shared_ptr<rt2_assignment1::srv::RandomPosition::Response> response)
   {
   (void)request_header;
+    std::cout<<"received request"<<std::endl;
     response->x = request->x_min + (rand() / ( RAND_MAX / (request->x_max-request->x_min) ) );
     response->y = request->y_min + (rand() / ( RAND_MAX / (request->y_max-request->y_min) ) );
     response->theta =  -3.14+ (rand() / ( RAND_MAX / (6.28)));
+    std::cout<<"sent random"<<std::endl;
   }
   rclcpp::Service<rt2_assignment1::srv::RandomPosition>::SharedPtr service_; // service var: pointer to rclcpp service
   
