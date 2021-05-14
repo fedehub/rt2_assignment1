@@ -30,6 +30,15 @@ lb_a = -0.5
 ub_d = 0.6
 
 
+## Documentation for the clbk_odom function.
+#
+#  More details.
+#
+#
+# @var position_ gets the actual position of the robot 
+# @var defines the robot orientation
+# @arg msg the posiion message
+
 def clbk_odom(msg):
     global position_
     global yaw_
@@ -46,35 +55,64 @@ def clbk_odom(msg):
     yaw_ = euler[2]
 
 
+
 class GoalReachingAction(object):
-    # create messages that are used to publish feedback/result
+    # initialising variables for defining each field of the action
     _feedback = rt2_assignment1.msg.GoalReachingFeedback()
     _result = rt2_assignment1.msg.GoalReachingResult()
     _goal = rt2_assignment1.msg.GoalReachingGoal()
 
+## Documentation for the _init_function.
+#
+#  More details.
+#
+#
+# @arg self 
+# @arg name refers to the action name 
+# @var _as It defines the action server 
+
     def __init__(self, name):
         self._action_name = name
-        rospy.loginfo('CANTAMI DI QUESTO VENTO! OTTOCENTO')
+        # initialisation of the actionlib server.As arguments it gets the name of the action and the msg of type GoalREaching action and the callback execute_cb. 
         self._as = actionlib.SimpleActionServer(self._action_name, rt2_assignment1.msg.GoalReachingAction,execute_cb=self.execute_cb,auto_start=False)
+        # starting the action server 
         self._as.start()
 
+## Documentation for the execute_cb function.
+#
+#  More details.
+#
+#
+# @arg self 
+# @arg goal refers to the action's aim
+# @var r it defines the helper variable
+# @var success boolean variable to confirm the action ending 
+
     def execute_cb(self, goal):
+        '''
+        Description of the callback:
+        This function takes as argument the goal variable whose value is
+        provided from the action client in the state_machine.cpp. The feedback
+        of the action message is constantly updated as the current pose of 
+        the robot. Then the desired_position is initialised as the goal of 
+        the action. To conclude with, the change_state function (which is responsible
+        for the _state assignment) is given with argument zero so that the robot 
+        can start fixing its own yaw before proceeding by reaching the goal
+        
+
+        '''
         global position_, yaw_precision_, yaw_, state_, pub_
         # helper variables
         r = rospy.Rate(1)
+        # boolean variable initialisation
         success = True
-
-        # append the seeds for the fibonacci sequence
+        
+        # initialising feedback fields
         self._feedback.updated_x = position_.x
         self._feedback.updated_y = position_.y
         self._feedback.updated_theta = yaw_
 
-        # publish info to the console for the user
-        #rospy.loginfo(
-            #' Robot Position: %f %f, Robot orientation: %f ' %
-            #(self._feedback.updated_x,
-            # self._feedback.updated_y,
-            # self._feedback.updated_theta))
+        
 
         # start executing the action
         desired_position = Point()
@@ -89,6 +127,7 @@ class GoalReachingAction(object):
                 self._as.set_preempted()
                 success = False
                 break
+            # updating feedback (run-time)
             self._feedback.updated_x = position_.x
             self._feedback.updated_y = position_.y
             self._feedback.updated_theta = yaw_
@@ -104,6 +143,13 @@ class GoalReachingAction(object):
                 self.done()
                 break
          
+## Documentation for the change_state function.
+#
+#  More details.
+#
+# @param
+# @var state_ the current state of the robot
+
 
     def change_state(self,state):
         global state_
@@ -151,7 +197,7 @@ class GoalReachingAction(object):
             twist_msg.angular.z = kp_a * err_yaw
             pub_.publish(twist_msg)
         else:  # state change conditions
-            #print ('Position error: [%s]' % err_pos)
+        #print ('Position error: [%s]' % err_pos)
             self.change_state(2)
         # state change conditions
         if math.fabs(err_yaw) > yaw_precision_:
@@ -182,6 +228,14 @@ class GoalReachingAction(object):
         self._result.ok = True
         rospy.loginfo(' Succeeded in reaching the desired Position! ')
 
+## Documentation for the main function.
+#
+#  More details.
+#
+# @param None
+# @var server it is defined as an object of the GoalReaching class 
+# @var pub_ it defines the Oublisher of the topic /cmd_vel within which we publish messages of type Twist
+# @var sub_odom it is initialised as the subscriber to the /odom topic. As argument it calls the clbk_odom
 
 def main():
     global pub_
