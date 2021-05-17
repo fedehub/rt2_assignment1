@@ -1,0 +1,80 @@
+\hypertarget{state__machine_8cpp}{}\section{src/state\+\_\+machine.cpp File Reference}
+\label{state__machine_8cpp}\index{src/state\+\_\+machine.\+cpp@{src/state\+\_\+machine.\+cpp}}
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rt2\+\_\+assignment1/\+Command.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}rt2\+\_\+assignment1/\+Random\+Position.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$actionlib/client/simple\+\_\+action\+\_\+client.\+h$>$}\\*
+{\ttfamily \#include $<$actionlib/client/terminal\+\_\+state.\+h$>$}\\*
+{\ttfamily \#include $<$rt2\+\_\+assignment1/\+Goal\+Reaching\+Action.\+h$>$}\\*
+Include dependency graph for state\+\_\+machine.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{state__machine_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{state__machine_8cpp_a1a9543636935547580c0657f4c7c0c2b}{user\+\_\+interface} (rt2\+\_\+assignment1\+::\+Command\+::\+Request \&req, rt2\+\_\+assignment1\+::\+Command\+::\+Response \&res)
+\begin{DoxyCompactList}\small\item\em This function is the callback function of the servise for server. \end{DoxyCompactList}\item 
+int \hyperlink{state__machine_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{state__machine_8cpp_ab376b87f96a574a793c03c53e75afec8}{start} = false
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{state\+\_\+machine.\+cpp@{state\+\_\+machine.\+cpp}!main@{main}}
+\index{main@{main}!state\+\_\+machine.\+cpp@{state\+\_\+machine.\+cpp}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{state__machine_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{state__machine_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+
+Definition at line 33 of file state\+\_\+machine.\+cpp.
+
+\index{state\+\_\+machine.\+cpp@{state\+\_\+machine.\+cpp}!user\+\_\+interface@{user\+\_\+interface}}
+\index{user\+\_\+interface@{user\+\_\+interface}!state\+\_\+machine.\+cpp@{state\+\_\+machine.\+cpp}}
+\subsubsection[{\texorpdfstring{user\+\_\+interface(rt2\+\_\+assignment1\+::\+Command\+::\+Request \&req, rt2\+\_\+assignment1\+::\+Command\+::\+Response \&res)}{user_interface(rt2_assignment1::Command::Request &req, rt2_assignment1::Command::Response &res)}}]{\setlength{\rightskip}{0pt plus 5cm}bool user\+\_\+interface (
+\begin{DoxyParamCaption}
+\item[{rt2\+\_\+assignment1\+::\+Command\+::\+Request \&}]{req, }
+\item[{rt2\+\_\+assignment1\+::\+Command\+::\+Response \&}]{res}
+\end{DoxyParamCaption}
+)}\hypertarget{state__machine_8cpp_a1a9543636935547580c0657f4c7c0c2b}{}\label{state__machine_8cpp_a1a9543636935547580c0657f4c7c0c2b}
+
+
+This function is the callback function of the servise for server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em req} & the request received from the client of the \hyperlink{user__interface_8py}{user\+\_\+interface.\+py}. \\
+\hline
+{\em res} & the response has not been used \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em A} & boolean value \\
+\hline
+\end{DoxyRetVals}
+
+
+Definition at line 17 of file state\+\_\+machine.\+cpp.
+
+
+
+\subsection{Variable Documentation}
+\index{state\+\_\+machine.\+cpp@{state\+\_\+machine.\+cpp}!start@{start}}
+\index{start@{start}!state\+\_\+machine.\+cpp@{state\+\_\+machine.\+cpp}}
+\subsubsection[{\texorpdfstring{start}{start}}]{\setlength{\rightskip}{0pt plus 5cm}bool start = false}\hypertarget{state__machine_8cpp_ab376b87f96a574a793c03c53e75afec8}{}\label{state__machine_8cpp_ab376b87f96a574a793c03c53e75afec8}
+
+
+Definition at line 8 of file state\+\_\+machine.\+cpp.
+
