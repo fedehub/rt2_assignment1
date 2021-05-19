@@ -9,10 +9,13 @@
 
 The [Professor's package](https://github.com/CarmineD8/rt2_assignment1) has been modified by creating this repository, containing the given package and two additional branches:
 
-1. `actions` 
+1. `action` 
 2. `ros2`
 
-Finally, in the main branch (or in one of the two added branches), I added a Vrep scene containing the robot interacting with the simulation. (You can choose if using ROS or ROS2 api)
+Finally, in the main branch, I added a Vrep scene containing the robot interacting with the simulation. I will briefly introduce it in the following section
+
+## Vrep scene 
+The file scneVrep.ttt contains the scene t up
 
 ## More about the "_actions_" branch
 This latter, should contain the same package in ROS, but with the **go_to_point** node modelled as a ROS action server, instead of a “simple” server.
