@@ -1,5 +1,19 @@
 # First Assignment of the Research Track 2 course - Ros2 branch 
 
+## Table of Contents
+- Index
+  - [List of the required packages](#list-of-the-required-packages)
+  - [Description of the branch](#description-of-the-branch)
+    - [Launch folder](#launch-folder)
+    - [Srv folder](#srv-folder)
+    - [Src folder](#src-folder)
+  - [Rqt-graph (ROS tool)](#rqt-graph-ros-tool)
+  - [How to launch](#how-to-launch)
+  - [Documentation](#documentation)
+  - [Release History](#release-history)
+  - [Meta](#meta)
+  - [Contributing](#contributing)
+
 ## List of the required packages 
 The packages required to build the Node, are:
 1. `rt2_assignment1` [main branch](https://github.com/fedehub/rt2_assignment1/tree/main) on a ros workspace (in the `/root` folder, source ros1.sh)
@@ -15,8 +29,8 @@ They have been designed for being compatible with `ROS2`, as **components**, so 
 * the simulation in Gazebo. 
 The `go_to_point` has been implemented as a service. Also:
 
-1. a launch file to start the container manager and the components that have been created
-2. a script to launch all required nodes and the simulation have been implemented
+1. a **launch file** to start the container manager and the components, has been created
+2. a **script** to launch all required nodes and the simulation, has been implemented
 
 ### Launch folder
 It contains two different files:
@@ -25,16 +39,30 @@ It contains two different files:
 
 ### Srv folder
 It contains three different files:
-1. [Command.srv]()
-2. [Position.srv]()
-3. [RandomPosition.srv]()
+1. [Command.srv](https://github.com/fedehub/rt2_assignment1/blob/ros2/srv/Command.srv)
+2. [Position.srv](https://github.com/fedehub/rt2_assignment1/blob/ros2/srv/Position.srv)
+3. [RandomPosition.srv](https://github.com/fedehub/rt2_assignment1/blob/ros2/srv/RandomPosition.srv)
 ### Src folder 
 As already mentioned a few paragraphs above, within this folder, it is possible to see the implementation of:
 * [position_service.cpp](https://github.com/fedehub/rt2_assignment1/blob/ros2/src/position_service.cpp)
 * [state_machine.cpp](https://github.com/fedehub/rt2_assignment1/blob/ros2/src/state_machine.cpp)
 The beahviour of these two nodes is the same of the main branch ones, with the unique exeption that these are compatble with ROS2. 
 
-## How to run the code 
+## Rqt-graph (ROS tool)
+
+By running the following command:
+
+```
+rosrun rqt_graph rqt_graph
+
+```
+it is possible to show a dynamic graph, depicting what is going on within the System.
+
+![rqt_graph]( https://github.com/fedehub/rt2_assignment1/blob/ros2/rqt-graph/rosgraph.png "Rqt_graph first graph")
+and
+![rqt_graph]( https://github.com/fedehub/rt2_assignment1/blob/ros2/rqt-graph/rosgraphros.png "Rqt_graph second graph")
+
+## How to launch 
 In order to run the code, please follow the steps reported below:
 1. Create three `.sh` files in your `/root` directory: **the first one** (ros.sh) should contain these lines:
    
@@ -95,3 +123,30 @@ Otherwise:
       ./all_simulation.sh
 
        ```
+
+## Documentation
+
+The documentation of this project, obtained by means of **DoxyGen** is visible, within the [docs](https://github.com/fedehub/rt2_assignment1/tree/ros2/docs) folder
+
+## Release History
+
+* `0.1.0`
+ * The first proper release
+
+* `0.0.1`
+ * Work in progress
+
+## Meta
+
+Federico Civetta– s4194543 – fedeunivers@gmail.com
+
+
+https://github.com/fedehub
+
+## Contributing
+
+1. Fork it (https://github.com/fedehub/rt2_assignment1/fork)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
