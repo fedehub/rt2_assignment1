@@ -1,7 +1,7 @@
 # First Assignment of the Research Track 2 course - Action branch
 
 ## Table of contents 
-- Index
+- Index 
   - [List of the required packages](#list-of-the-required-packages)
   - [Description of the branch](#description-of-the-branch)
     - [Action folder](#action-folder)
@@ -10,8 +10,13 @@
     - [Srv folder](#srv-folder)
     - [Src folder](#src-folder)
     - [URDF folder](#urdf-folder)
+  - [Rqt-graph (ROS tool)](#rqt-graph-ros-tool)
+  - [Documentation](#documentation)
   - [How to run the code](#how-to-run-the-code)
-
+  - [Release History](#release-history)
+  - [Meta](#meta)
+  - [Contributing](#contributing)
+  
 ## List of the required packages
 
 Within the project, by means of the [Actonlib package](http://wiki.ros.org/actionlib) it has been possible to create:
