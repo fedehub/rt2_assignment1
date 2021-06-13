@@ -1,3 +1,12 @@
+/**
+* @file state_machine.cpp
+* @brief Node describing the state machine implementation 
+* @author Federico Civetta
+* @version 0.1
+* @date 13/06/2021
+*
+*/
+
 #include "ros/ros.h"
 #include "rt2_assignment1/Command.h"
 #include "rt2_assignment1/RandomPosition.h"

@@ -1,3 +1,12 @@
+/**
+* @file position_service.cpp
+* @brief Node implementing the ROS service for gettinf random position
+* @author Federico Civetta
+* @version 0.1
+* @date 13/06/2021
+*
+*/
+
 #include "ros/ros.h"
 #include "rt2_assignment1/RandomPosition.h"
 
