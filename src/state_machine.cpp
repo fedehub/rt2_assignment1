@@ -1,3 +1,35 @@
+/**
+* @file state_machine.cpp
+* @brief Node describing the state machine implementation 
+* @author Federico Civetta
+* @version 0.0.1
+* @date 13/06/2021
+*
+* @param [in] world_width Definte the width of the discretized world
+*
+* @details 
+*
+* Subscribes to: <BR>
+*  /robot_behavior_state
+* Publishes to: <BR>
+*  /PlayWithRobot
+*
+* Services: <BR>
+*  /user_interface
+*  /position_server
+*
+* Description:
+*
+* By means of an user interface, the user is able of making the robot starts 
+* by entering the 1 integer value, the robot starts moving. There is one boolean 
+* value which becomes true and then call the \verbatim position_service.cpp  \endverbatim
+* which retrieves the random goal position to reach from the RandomPosition.srv custom 
+* service, sends the random position as the action server goal, waits for the robot 
+* to reach the designated position
+*
+*/
+
+
 #include "ros/ros.h"
 #include "rt2_assignment1/Command.h"
 #include "rt2_assignment1/RandomPosition.h"
@@ -8,7 +40,7 @@
 bool start = false;
 
 /**
- *@brief This function is the callback function of the servise for server.
+ *@brief This function is the callback function of the service for server.
  *@param req  the request received from the client of the user_interface.py. 
  *@param res  the response has not been used 
  *@retval A boolean value
