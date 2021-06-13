@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['user_5finterface_12',['user_interface',['../state__machine_8cpp.html#a1a9543636935547580c0657f4c7c0c2b',1,'state_machine.cpp']]]
+  ['normalize_5fangle_16',['normalize_angle',['../classgo__to__point_1_1_goal_reaching_action.html#a51249013da22ad9caa521c87048e7b4f',1,'go_to_point::GoalReachingAction']]]
 ];

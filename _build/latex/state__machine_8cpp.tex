@@ -11,8 +11,7 @@ Node describing the state machine implementation.
 {\ttfamily \#include $<$actionlib/client/simple\+\_\+action\+\_\+client.\+h$>$}\newline
 {\ttfamily \#include $<$actionlib/client/terminal\+\_\+state.\+h$>$}\newline
 {\ttfamily \#include $<$rt2\+\_\+assignment1/\+Goal\+Reaching\+Action.\+h$>$}\newline
-Include dependency graph for state\+\_\+machine.\+cpp\+:
-\nopagebreak
+Include dependency graph for state\+\_\+machine.\+cpp\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -23,7 +22,7 @@ Include dependency graph for state\+\_\+machine.\+cpp\+:
 \begin{DoxyCompactItemize}
 \item 
 bool \mbox{\hyperlink{state__machine_8cpp_a1a9543636935547580c0657f4c7c0c2b}{user\+\_\+interface}} (rt2\+\_\+assignment1\+::\+Command\+::\+Request \&req, rt2\+\_\+assignment1\+::\+Command\+::\+Response \&res)
-\begin{DoxyCompactList}\small\item\em This function is the callback function of the servise for server. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em This function is the callback function of the service for server. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{state__machine_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{state__machine_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
 int {\bfseries main} (int argc, char $\ast$$\ast$argv)
 \end{DoxyCompactItemize}
@@ -39,15 +38,30 @@ bool {\bfseries start} = false
 Node describing the state machine implementation. 
 
 \begin{DoxyAuthor}{Author}
-Federico Civetta 
+Federico Civetta
 \end{DoxyAuthor}
 \begin{DoxyVersion}{Version}
 0.\+1 
 \end{DoxyVersion}
 \begin{DoxyDate}{Date}
-13/06/2021 
+13/06/2021
 \end{DoxyDate}
 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em world\+\_\+width} & Definte the width of the discretized world\\
+\hline
+\end{DoxyParams}
+Subscribes to\+: ~\newline
+ /robot\+\_\+behavior\+\_\+state Publishes to\+: ~\newline
+ /\+Play\+With\+Robot
+
+Services\+: ~\newline
+ /user\+\_\+interface /position\+\_\+server
+
+Description\+:
+
+By means of an user interface, the user is able of making the robot starts by entering the 1 integer value, the robot starts moving. There is one boolean value which becomes true and then call the\begin{DoxyVerb}position_service.cpp  \end{DoxyVerb}
+ which retrieves the random goal position to reach from the Random\+Position.\+srv custom service, sends the random position as the action server goal, waits for the robot to reach the designated position 
 
 \doxysubsection{Function Documentation}
 \mbox{\Hypertarget{state__machine_8cpp_a1a9543636935547580c0657f4c7c0c2b}\label{state__machine_8cpp_a1a9543636935547580c0657f4c7c0c2b}} 
@@ -58,7 +72,7 @@ Federico Civetta
 
 
 
-This function is the callback function of the servise for server. 
+This function is the callback function of the service for server. 
 
 
 \begin{DoxyParams}{Parameters}

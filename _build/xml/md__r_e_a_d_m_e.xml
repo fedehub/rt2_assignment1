@@ -46,7 +46,7 @@
 </sect1>
 <sect1 id="md__r_e_a_d_m_e_1autotoc_md3">
 <title>Description of the branch</title>
-<para>The action branch, should contain the same package in ROS, but with the <bold>go_to_point node</bold> modelled as a <bold>ROS action server</bold>, instead of a “simple” server. Given that, the robot Finite State Machine (FSM) node should now implement mechanisms for possibly cancelling the goal, when the related user command is received.</para>
+<para>The action branch, should contain the same package in ROS, but with the <bold><ref refid="namespacego__to__point" kindref="compound">go_to_point</ref> node</bold> modelled as a <bold>ROS action server</bold>, instead of a “simple” server. Given that, the robot Finite State Machine (FSM) node should now implement mechanisms for possibly cancelling the goal, when the related user command is received.</para>
 <para>This branch is structured as reported below, in the following paragraphs.</para>
 <sect2 id="md__r_e_a_d_m_e_1autotoc_md4">
 <title>Action folder</title>

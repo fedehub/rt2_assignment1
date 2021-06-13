@@ -1,27 +1,30 @@
 var indexSectionsWithContent =
 {
-  0: "fgmprsu",
+  0: "efgmnprsu",
   1: "g",
-  2: "ps",
-  3: "mru",
-  4: "f"
+  2: "g",
+  3: "ps",
+  4: "emnru",
+  5: "f"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "classes",
-  2: "files",
-  3: "functions",
-  4: "pages"
+  2: "namespaces",
+  3: "files",
+  4: "functions",
+  5: "pages"
 };
 
 var indexSectionLabels =
 {
   0: "All",
   1: "Classes",
-  2: "Files",
-  3: "Functions",
-  4: "Pages"
+  2: "Namespaces",
+  3: "Files",
+  4: "Functions",
+  5: "Pages"
 };
 

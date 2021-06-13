@@ -1,4 +1,5 @@
-/**
+/**@ package rt2_assignment1
+* 
 * @file position_service.cpp
 * @brief Node implementing the ROS service for gettinf random position
 * @author Federico Civetta
@@ -62,6 +63,7 @@ bool myrandom (rt2_assignment1::RandomPosition::Request &req, rt2_assignment1::R
 
 int main(int argc, char **argv)
 {
+
    /* initialising the random_position_server node */
    ros::init(argc, argv, "random_position_server");
    /* setting-up the node handle n*/

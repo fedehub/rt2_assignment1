@@ -1,4 +1,5 @@
-/**
+/** @ package rt2_assignment1
+* 
 * @file state_machine.cpp
 * @brief Node describing the state machine implementation 
 * @author Federico Civetta

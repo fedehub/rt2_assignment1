@@ -90,9 +90,9 @@
               <div class="local-toc"><ul>
 <li><a class="reference internal" href="#">Indices</a></li>
 <li><a class="reference internal" href="#rt2-assignment1-s-documentation">Rt2_assignment1’s documentation!</a><ul>
-<li><a class="reference internal" href="#module-scripts.user_interface">User Interface Module</a></li>
 <li><a class="reference internal" href="#module-scripts.go_to_point">GoToPoint Module</a></li>
 <li><a class="reference internal" href="#position-service">Position Service</a></li>
+<li><a class="reference internal" href="#state-machine">State machine</a></li>
 </ul>
 </li>
 </ul>
@@ -175,39 +175,69 @@
 <div class="section" id="rt2-assignment1-s-documentation">
 <h1>Rt2_assignment1’s documentation!<a class="headerlink" href="#rt2-assignment1-s-documentation" title="Permalink to this headline">¶</a></h1>
 <p>This is the documentation of the RT2_assignment package!</p>
-<div class="section" id="module-scripts.user_interface">
-<span id="user-interface-module"></span><h2>User Interface Module<a class="headerlink" href="#module-scripts.user_interface" title="Permalink to this headline">¶</a></h2>
-</div>
 <div class="section" id="module-scripts.go_to_point">
 <span id="gotopoint-module"></span><h2>GoToPoint Module<a class="headerlink" href="#module-scripts.go_to_point" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-go_to_point"></span><p>ROS node for driving a robot to a specific point</p>
+<p>Subscribes to:
+/odom topic where the simulator publishes the robot position</p>
+<p>Publishes to:
+/cmd_vel the desired robot position</p>
+<p>Service :
+/go_to_point to start the robot motion.</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="scripts.go_to_point.position_">
+<span class="sig-prename descclassname"><span class="pre">scripts.go_to_point.</span></span><span class="sig-name descname"><span class="pre">position_</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#scripts.go_to_point.position_" title="Permalink to this definition">¶</a></dt>
+<dd><p>actual robot position</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>Point</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="position-service">
 <h2>Position Service<a class="headerlink" href="#position-service" title="Permalink to this headline">¶</a></h2>
 <p>Node implementing the ROS service for gettinf random position. </p>
-<p><dl class="simple">
+<p><p>Subscribes to:</p>
+<p>/robot_behavior_state Publishes to:</p>
+
+ /PlayWithRobot<dl class="simple">
 <dt><strong>Author</strong></dt><dd><p>Federico Civetta </p>
 </dd>
 <dt><strong>Version</strong></dt><dd><p>0.1 </p>
 </dd>
-<dt><strong>Date</strong></dt><dd><p>13/06/2021 </p>
+<dt><strong>Date</strong></dt><dd><p>13/06/2021</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">param world_width</dt>
+<dd class="field-odd"><p><strong>[in]</strong> Definte the width of the discretized world</p>
 </dd>
 </dl>
 </p>
+<p><p>Services:</p>
+<p>/position_server</p>
+</p>
+<p>Description:</p>
+<p>This node advertises a position service. When the service is require, a request containing the minimum and the maximum values for the x and y position is used to generate a random position between x (or y) min and x (or y) max. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv48randMToNdd">
 <span id="_CPPv38randMToNdd"></span><span id="_CPPv28randMToNdd"></span><span id="randMToN__double.double"></span><span class="target" id="position__service_8cpp_1a10f83119b77a8fbd085a5550955f85ff"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">randMToN</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">M</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">N</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv48randMToNdd" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>This returns a random value. </p>
+<dd><p>Random number generator. </p>
+<p>
+This function generates a random number between M and N </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>M</strong> – the minimum of a certain interval </p></li>
-<li><p><strong>N</strong> – the maximum of a certain interval </p></li>
+<li><p><strong>M</strong> – defines the minimum possible value for a random number (within a certain interval) </p></li>
+<li><p><strong>N</strong> – the maximum possible value for a random number (within a certain interval)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns a</dt>
-<dd class="field-even"><p>double value, defining a random number adressed to myrandom </p>
+<dd class="field-even"><p>double value, defining a random number adressed to myrandom</p>
 </dd>
 </dl>
 </dd></dl>
@@ -220,7 +250,7 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>req</strong> – the request received from the client. It gets two intervals of values for x and y </p></li>
-<li><p><strong>res</strong> – the response returned to the client (the random coordinates within a specific interval) </p></li>
+<li><p><strong>res</strong> – the response returned to the client (the random coordinates within a specific interval)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns the</dt>
@@ -232,6 +262,68 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv44mainiPPc">
 <span id="_CPPv34mainiPPc"></span><span id="_CPPv24mainiPPc"></span><span id="main__i.cPP"></span><span class="target" id="position__service_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv44mainiPPc" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="state-machine">
+<h2>State machine<a class="headerlink" href="#state-machine" title="Permalink to this headline">¶</a></h2>
+<p>Node describing the state machine implementation. </p>
+<p><p>Subscribes to:</p>
+<p>/robot_behavior_state Publishes to:</p>
+
+ /PlayWithRobot<dl class="simple">
+<dt><strong>Author</strong></dt><dd><p>Federico Civetta</p>
+</dd>
+<dt><strong>Version</strong></dt><dd><p>0.1 </p>
+</dd>
+<dt><strong>Date</strong></dt><dd><p>13/06/2021</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">param world_width</dt>
+<dd class="field-odd"><p><strong>[in]</strong> Definte the width of the discretized world</p>
+</dd>
+</dl>
+</p>
+<p><p>Services:</p>
+<p>/user_interface /position_server</p>
+</p>
+<p>Description:</p>
+<p>By means of an user interface, the user is able of making the robot starts by entering the 1 integer value, the robot starts moving. There is one boolean value which becomes true and then call the<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">position_service</span><span class="p">.</span><span class="n">cpp</span>
+</pre></div>
+</div>
+ which retrieves the random goal position to reach from the RandomPosition.srv custom service, sends the random position as the action server goal, waits for the robot to reach the designated position </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv414user_interfaceRN15rt2_assignment17Command7RequestERN15rt2_assignment17Command8ResponseE">
+<span id="_CPPv314user_interfaceRN15rt2_assignment17Command7RequestERN15rt2_assignment17Command8ResponseE"></span><span id="_CPPv214user_interfaceRN15rt2_assignment17Command7RequestERN15rt2_assignment17Command8ResponseE"></span><span id="user_interface__rt2_assignment1::Command::RequestR.rt2_assignment1::Command::ResponseR"></span><span class="target" id="state__machine_8cpp_1a1a9543636935547580c0657f4c7c0c2b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">user_interface</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">rt2_assignment1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Command</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Request</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">req</span></span>, <span class="n"><span class="pre">rt2_assignment1</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Command</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Response</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">res</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414user_interfaceRN15rt2_assignment17Command7RequestERN15rt2_assignment17Command8ResponseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>This function is the callback function of the service for server. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>req</strong> – the request received from the client of the user_interface.py. </p></li>
+<li><p><strong>res</strong> – the response has not been used </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns A</dt>
+<dd class="field-even"><p>boolean value </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="state__machine_8cpp_1a3c04138a5bfe5d72780bb7e82a18e627"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-variables">Variables</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv45start">
+<span id="_CPPv35start"></span><span id="_CPPv25start"></span><span id="start__b"></span><span class="target" id="state__machine_8cpp_1ab376b87f96a574a793c03c53e75afec8"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">start</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><a class="headerlink" href="#_CPPv45start" title="Permalink to this definition">¶</a><br /></dt>
 <dd></dd></dl>
 
 </div>
