@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>First<sp/>Assignment<sp/>of<sp/>the<sp/>Research<sp/>Track<sp/>2<sp/>course<sp/>-<sp/>Action<sp/>branch</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Table<sp/>of<sp/>contents<sp/></highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Index<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>[List<sp/>of<sp/>the<sp/>required<sp/>packages](#list-of-the-required-packages)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>[Description<sp/>of<sp/>the<sp/>branch](#description-of-the-branch)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>[Action<sp/>folder](#action-folder)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>[Script<sp/>folder](#script-folder)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>[Launch<sp/>folder](#launch-folder)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>[Srv<sp/>folder](#srv-folder)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>[Src<sp/>folder](#src-folder)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>-<sp/>[URDF<sp/>folder](#urdf-folder)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>[Rqt-graph<sp/>(ROS<sp/>tool)](#rqt-graph-ros-tool)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>[Documentation](#documentation)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>[How<sp/>to<sp/>run<sp/>the<sp/>code](#how-to-run-the-code)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>[Release<sp/>History](#release-history)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>[Meta](#meta)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>-<sp/>[Contributing](#contributing)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">##<sp/>List<sp/>of<sp/>the<sp/>required<sp/>packages</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Within<sp/>the<sp/>project,<sp/>by<sp/>means<sp/>of<sp/>the<sp/>[Actonlib<sp/>package](http://wiki.ros.org/actionlib)<sp/>it<sp/>has<sp/>been<sp/>possible<sp/>to<sp/>create:</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>servers<sp/>able<sp/>to<sp/><sp/>execute<sp/>long-running<sp/>tasks</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>clients<sp/><sp/>interacting<sp/>with<sp/>them<sp/></highlight></codeline>
+<codeline><highlight class="normal">The<sp/>*Action<sp/>template*<sp/>has<sp/>been<sp/>defined<sp/>through<sp/>an<sp/>**.action<sp/>structure**<sp/>defined<sp/>in<sp/>ROS<sp/>and<sp/>placed<sp/>inside<sp/>the<sp/>action<sp/>folder<sp/>of<sp/>the<sp/><sp/>**rt2_assignment1**<sp/>package.<sp/></highlight></codeline>
+<codeline><highlight class="normal">The<sp/>action<sp/>messages<sp/>are<sp/>generated<sp/>automatically<sp/>from<sp/>the<sp/>[GoalReaching.action](https://github.com/fedehub/rt2_assignment1/blob/action/action/GoalReaching.action)<sp/>file-</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>file<sp/>defines:</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>the<sp/>*type*<sp/>and<sp/>*format*<sp/>of<sp/>the<sp/>goal</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>the<sp/>*result*<sp/></highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>the<sp/>*feedback<sp/>topics*<sp/>for<sp/>the<sp/>action.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Description<sp/>of<sp/>the<sp/>branch</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>action<sp/>branch,<sp/>should<sp/>contain<sp/>the<sp/>same<sp/>package<sp/>in<sp/>ROS,<sp/>but<sp/>with<sp/>the<sp/>**go_to_point<sp/>node**<sp/>modelled<sp/>as<sp/>a<sp/>**ROS<sp/>action<sp/>server**,<sp/>instead<sp/>of<sp/>a<sp/>“simple”<sp/>server.<sp/>Given<sp/>that,<sp/>the<sp/>robot<sp/>Finite<sp/>State<sp/>Machine<sp/>(FSM)<sp/>node<sp/>should<sp/>now<sp/>implement<sp/>mechanisms<sp/>for<sp/>possibly<sp/>cancelling<sp/>the<sp/>goal,<sp/>when<sp/>the<sp/>related<sp/>user<sp/>command<sp/>is<sp/>received.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>branch<sp/>is<sp/>structured<sp/>as<sp/>reported<sp/>below,<sp/>in<sp/>the<sp/>following<sp/>paragraphs.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Action<sp/>folder<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">It<sp/>contains<sp/>the<sp/>instruction<sp/>for<sp/>defining<sp/>the<sp/>expected<sp/>**action**.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Script<sp/>folder</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">It<sp/>contains:</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>[go_to_point](https://github.com/fedehub/rt2_assignment1/blob/action/scripts/go_to_point.py)</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>[user_interface](https://github.com/fedehub/rt2_assignment1/blob/action/scripts/user_interface.py):<sp/>If<sp/>user<sp/>enter<sp/>1,<sp/>the<sp/>command<sp/><sp/>client<sp/>calls<sp/>the<sp/>state<sp/>machine<sp/>with<sp/>the<sp/>start<sp/>string<sp/>(robot<sp/>starts<sp/>to<sp/>move<sp/>randomly).<sp/>If<sp/>it<sp/>enters<sp/>0,<sp/>in<sp/>this<sp/>branch<sp/>we<sp/>have<sp/>defined<sp/>a<sp/>client<sp/>for<sp/>the<sp/>action<sp/>so<sp/>that<sp/>teh<sp/>goal<sp/>of<sp/>the<sp/>robot<sp/>is<sp/>canceled<sp/>and<sp/>the<sp/>robot<sp/>is<sp/>stopped<sp/>in<sp/>the<sp/>actual<sp/>position<sp/>through<sp/>a<sp/>twist<sp/>message.</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Launch<sp/>folder<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Inside<sp/>this<sp/>folder,<sp/>there<sp/>is<sp/><sp/>the<sp/>[sim.launch<sp/>file](https://github.com/fedehub/rt2_assignment1/blob/action/launch/sim.launch),<sp/>responsible<sp/>for<sp/>the<sp/>starting<sp/>of<sp/><sp/>the<sp/>overall<sp/>simulation.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Srv<sp/>folder<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>latter,<sp/>contains<sp/>two<sp/>custom<sp/>services:</highlight></codeline>
+<codeline><highlight class="normal">1.<sp/>[Command.srv](https://github.com/fedehub/rt2_assignment1/blob/action/srv/Command.srv)</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>[RandomPosition.srv](https://github.com/fedehub/rt2_assignment1/blob/action/srv/RandomPosition.srv):<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*<sp/>As<sp/>request<sp/>it<sp/>issues<sp/>**two<sp/>ranges**<sp/>of<sp/>intervals<sp/>for<sp/>the<sp/>**x**<sp/>and<sp/>**y<sp/>coordinates**<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*<sp/>As<sp/>reply<sp/>it<sp/>provides<sp/>a<sp/>**random<sp/>x,y**<sp/>and<sp/>**theta**<sp/>**values**</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Src<sp/>folder</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>[postion_service.cpp](https://github.com/fedehub/rt2_assignment1/blob/action/src/position_service.cpp):<sp/>It<sp/>simply<sp/>returns<sp/>the<sp/>random<sp/>position<sp/>which<sp/>the<sp/>robot<sp/>has<sp/>to<sp/>reach.</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>[state_machine.cpp](https://github.com/fedehub/rt2_assignment1/blob/action/src/state_machine.cpp):<sp/>By<sp/>means<sp/>of<sp/>an<sp/>user<sp/>interface,<sp/>the<sp/>user<sp/>is<sp/>able<sp/>of<sp/>making<sp/>the<sp/>robot<sp/>starts<sp/>by<sp/>entering<sp/>the<sp/>1<sp/>integer<sp/>value,<sp/>the<sp/>robot<sp/>starts<sp/>moving.<sp/>There<sp/>is<sp/>one<sp/>boolean<sp/>value<sp/>which<sp/>becomes<sp/>true<sp/>and<sp/>then</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*<sp/>call<sp/>the<sp/>position_service.cpp<sp/>which<sp/>retrieves<sp/>the<sp/>random<sp/>goal<sp/>position<sp/>to<sp/>reach<sp/>from<sp/>the<sp/>RandomPosition.srv<sp/>custom<sp/>service</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*<sp/>sends<sp/>the<sp/>random<sp/>position<sp/>as<sp/>the<sp/>action<sp/>server<sp/>goal</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/>*<sp/>waits<sp/>for<sp/>the<sp/>robot<sp/>to<sp/>reach<sp/>the<sp/>designated<sp/>position<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>URDF<sp/>folder<sp/></highlight></codeline>
+<codeline><highlight class="normal">This<sp/>folder<sp/>contains<sp/>the<sp/>robot<sp/>description.</highlight></codeline>
+<codeline><highlight class="normal">[my_robot.urdf](https://github.com/fedehub/rt2_assignment1/blob/action/urdf/my_robot.urdf)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Rqt-graph<sp/>(ROS<sp/>tool)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">By<sp/>running<sp/>the<sp/>following<sp/>command:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">rosrun<sp/>rqt_graph<sp/>rqt_graph</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">it<sp/>is<sp/>possible<sp/>to<sp/>show<sp/>a<sp/>dynamic<sp/>graph,<sp/>depicting<sp/>what<sp/>is<sp/>going<sp/>on<sp/>within<sp/>the<sp/>System.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">![rqt_graph](https://github.com/fedehub/rt2_assignment1/blob/action/rqt-graph/rosgraph.png<sp/>&quot;Rqt_graph<sp/>second<sp/>assignment&quot;)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>documentation<sp/>of<sp/>this<sp/>project,<sp/>obtained<sp/>by<sp/>means<sp/>of<sp/>**DoxyGen**<sp/>is<sp/>visible,<sp/>within<sp/>the<sp/>[docs](https://github.com/fedehub/rt2_assignment1/tree/action/docs)<sp/>folder</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>How<sp/>to<sp/>run<sp/>the<sp/>code<sp/></highlight></codeline>
+<codeline><highlight class="normal">The<sp/>package<sp/>contains<sp/>the<sp/>nodes<sp/>and<sp/>the<sp/>simulation<sp/>environment<sp/>for<sp/>controlling<sp/>a<sp/>mobile<sp/>robot<sp/>in<sp/>the<sp/>Gazebo<sp/>simulation<sp/>environment.</highlight></codeline>
+<codeline><highlight class="normal">To<sp/>launch<sp/>the<sp/>node,<sp/>please<sp/>run:</highlight></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">roslaunch<sp/>rt2_assignment1<sp/>sim.launch</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Release<sp/>History</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`0.1.0`</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>The<sp/>first<sp/>proper<sp/>release</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`0.0.1`</highlight></codeline>
+<codeline><highlight class="normal"><sp/>*<sp/>Work<sp/>in<sp/>progress</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Meta</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Federico<sp/>Civetta–<sp/>s4194543<sp/>–<sp/>fedeunivers@gmail.com</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">https://github.com/fedehub</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Contributing</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Fork<sp/>it<sp/>(https://github.com/fedehub/rt2_assignment1/fork)</highlight></codeline>
+<codeline><highlight class="normal">2.<sp/>Create<sp/>your<sp/>feature<sp/>branch<sp/>(`git<sp/>checkout<sp/>-b<sp/>feature/fooBar`)</highlight></codeline>
+<codeline><highlight class="normal">3.<sp/>Commit<sp/>your<sp/>changes<sp/>(`git<sp/>commit<sp/>-am<sp/>&apos;Add<sp/>some<sp/>fooBar&apos;`)</highlight></codeline>
+<codeline><highlight class="normal">4.<sp/>Push<sp/>to<sp/>the<sp/>branch<sp/>(`git<sp/>push<sp/>origin<sp/>feature/fooBar`)</highlight></codeline>
+<codeline><highlight class="normal">5.<sp/>Create<sp/>a<sp/>new<sp/>Pull<sp/>Request</highlight></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="classgo__to__point_1_1_goal_reaching_action" kind="class" language="Python" prot="public">
+    <compoundname>go_to_point::GoalReachingAction</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">object</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classgo__to__point_1_1_goal_reaching_action_1a9e0156bee4e7e0f4e6fc6ad4b315dbfd" prot="private" static="yes" mutable="no">
+        <type></type>
+        <definition>go_to_point.GoalReachingAction::_feedback</definition>
+        <argsstring></argsstring>
+        <name>_feedback</name>
+        <initializer>=  rt2_assignment1.msg.GoalReachingFeedback()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/go_to_point.py" line="61" column="1" bodyfile="scripts/go_to_point.py" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgo__to__point_1_1_goal_reaching_action_1aa4315b701de400c6196f12fc04b52dbc" prot="private" static="yes" mutable="no">
+        <type></type>
+        <definition>go_to_point.GoalReachingAction::_result</definition>
+        <argsstring></argsstring>
+        <name>_result</name>
+        <initializer>=  rt2_assignment1.msg.GoalReachingResult()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/go_to_point.py" line="62" column="1" bodyfile="scripts/go_to_point.py" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classgo__to__point_1_1_goal_reaching_action_1a55b5e9462663ba06d0607caaca6d0035" prot="private" static="yes" mutable="no">
+        <type></type>
+        <definition>go_to_point.GoalReachingAction::_goal</definition>
+        <argsstring></argsstring>
+        <name>_goal</name>
+        <initializer>=  rt2_assignment1.msg.GoalReachingGoal()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="scripts/go_to_point.py" line="63" column="1" bodyfile="scripts/go_to_point.py" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>go_to_point.GoalReachingAction</label>
+        <link refid="classgo__to__point_1_1_goal_reaching_action"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>go_to_point.GoalReachingAction</label>
+        <link refid="classgo__to__point_1_1_goal_reaching_action"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>object</label>
+      </node>
+    </collaborationgraph>
+    <location file="scripts/go_to_point.py" line="59" column="1" bodyfile="scripts/go_to_point.py" bodystart="59" bodyend="65"/>
+    <listofallmembers>
+      <member refid="classgo__to__point_1_1_goal_reaching_action_1a9e0156bee4e7e0f4e6fc6ad4b315dbfd" prot="private" virt="non-virtual"><scope>go_to_point::GoalReachingAction</scope><name>_feedback</name></member>
+      <member refid="classgo__to__point_1_1_goal_reaching_action_1a55b5e9462663ba06d0607caaca6d0035" prot="private" virt="non-virtual"><scope>go_to_point::GoalReachingAction</scope><name>_goal</name></member>
+      <member refid="classgo__to__point_1_1_goal_reaching_action_1aa4315b701de400c6196f12fc04b52dbc" prot="private" virt="non-virtual"><scope>go_to_point::GoalReachingAction</scope><name>_result</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

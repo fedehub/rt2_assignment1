@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="md__r_e_a_d_m_e" kind="page">
+    <compoundname>md_README</compoundname>
+    <title>First Assignment of the Research Track 2 course - Action branch</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md1">
+<title>Table of contents</title>
+<para><itemizedlist>
+<listitem><para>Index<itemizedlist>
+<listitem><para><ulink url="#list-of-the-required-packages">List of the required packages</ulink></para>
+</listitem><listitem><para><ulink url="#description-of-the-branch">Description of the branch</ulink><itemizedlist>
+<listitem><para><ulink url="#action-folder">Action folder</ulink></para>
+</listitem><listitem><para><ulink url="#script-folder">Script folder</ulink></para>
+</listitem><listitem><para><ulink url="#launch-folder">Launch folder</ulink></para>
+</listitem><listitem><para><ulink url="#srv-folder">Srv folder</ulink></para>
+</listitem><listitem><para><ulink url="#src-folder">Src folder</ulink></para>
+</listitem><listitem><para><ulink url="#urdf-folder">URDF folder</ulink></para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><ulink url="#rqt-graph-ros-tool">Rqt-graph (ROS tool)</ulink></para>
+</listitem><listitem><para><ulink url="#documentation">Documentation</ulink></para>
+</listitem><listitem><para><ulink url="#how-to-run-the-code">How to run the code</ulink></para>
+</listitem><listitem><para><ulink url="#release-history">Release History</ulink></para>
+</listitem><listitem><para><ulink url="#meta">Meta</ulink></para>
+</listitem><listitem><para><ulink url="#contributing">Contributing</ulink></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md2">
+<title>List of the required packages</title>
+<para>Within the project, by means of the <ulink url="http://wiki.ros.org/actionlib">Actonlib package</ulink> it has been possible to create:<itemizedlist>
+<listitem><para>servers able to execute long-running tasks</para>
+</listitem><listitem><para>clients interacting with them The <emphasis>Action template</emphasis> has been defined through an **.action structure** defined in ROS and placed inside the action folder of the <bold>rt2_assignment1</bold> package. The action messages are generated automatically from the <ulink url="https://github.com/fedehub/rt2_assignment1/blob/action/action/GoalReaching.action">GoalReaching.action</ulink> file- This file defines:</para>
+</listitem></itemizedlist>
+<orderedlist>
+<listitem><para>the <emphasis>type</emphasis> and <emphasis>format</emphasis> of the goal</para>
+</listitem><listitem><para>the <emphasis>result</emphasis></para>
+</listitem><listitem><para>the <emphasis>feedback topics</emphasis> for the action.</para>
+</listitem></orderedlist>
+</para>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md3">
+<title>Description of the branch</title>
+<para>The action branch, should contain the same package in ROS, but with the <bold>go_to_point node</bold> modelled as a <bold>ROS action server</bold>, instead of a “simple” server. Given that, the robot Finite State Machine (FSM) node should now implement mechanisms for possibly cancelling the goal, when the related user command is received.</para>
+<para>This branch is structured as reported below, in the following paragraphs.</para>
+<sect2 id="md__r_e_a_d_m_e_1autotoc_md4">
+<title>Action folder</title>
+<para>It contains the instruction for defining the expected <bold>action</bold>.</para>
+</sect2>
+<sect2 id="md__r_e_a_d_m_e_1autotoc_md5">
+<title>Script folder</title>
+<para>It contains:<orderedlist>
+<listitem><para><ulink url="https://github.com/fedehub/rt2_assignment1/blob/action/scripts/go_to_point.py">go_to_point</ulink></para>
+</listitem><listitem><para><ulink url="https://github.com/fedehub/rt2_assignment1/blob/action/scripts/user_interface.py">user_interface</ulink>: If user enter 1, the command client calls the state machine with the start string (robot starts to move randomly). If it enters 0, in this branch we have defined a client for the action so that teh goal of the robot is canceled and the robot is stopped in the actual position through a twist message.</para>
+</listitem></orderedlist>
+</para>
+</sect2>
+<sect2 id="md__r_e_a_d_m_e_1autotoc_md6">
+<title>Launch folder</title>
+<para>Inside this folder, there is the <ulink url="https://github.com/fedehub/rt2_assignment1/blob/action/launch/sim.launch">sim.launch file</ulink>, responsible for the starting of the overall simulation.</para>
+</sect2>
+<sect2 id="md__r_e_a_d_m_e_1autotoc_md7">
+<title>Srv folder</title>
+<para>This latter, contains two custom services:<orderedlist>
+<listitem><para><ulink url="https://github.com/fedehub/rt2_assignment1/blob/action/srv/Command.srv">Command.srv</ulink></para>
+</listitem><listitem><para><ulink url="https://github.com/fedehub/rt2_assignment1/blob/action/srv/RandomPosition.srv">RandomPosition.srv</ulink>:<itemizedlist>
+<listitem><para>As request it issues <bold>two ranges</bold> of intervals for the <bold>x</bold> and <bold>y coordinates</bold></para>
+</listitem><listitem><para>As reply it provides a <bold>random x,y</bold> and <bold>theta</bold> <bold>values</bold></para>
+</listitem></itemizedlist>
+</para>
+</listitem></orderedlist>
+</para>
+</sect2>
+<sect2 id="md__r_e_a_d_m_e_1autotoc_md8">
+<title>Src folder</title>
+<para><orderedlist>
+<listitem><para><ulink url="https://github.com/fedehub/rt2_assignment1/blob/action/src/position_service.cpp">postion_service.cpp</ulink>: It simply returns the random position which the robot has to reach.</para>
+</listitem><listitem><para><ulink url="https://github.com/fedehub/rt2_assignment1/blob/action/src/state_machine.cpp">state_machine.cpp</ulink>: By means of an user interface, the user is able of making the robot starts by entering the 1 integer value, the robot starts moving. There is one boolean value which becomes true and then<itemizedlist>
+<listitem><para>call the <ref refid="position__service_8cpp" kindref="compound">position_service.cpp</ref> which retrieves the random goal position to reach from the RandomPosition.srv custom service</para>
+</listitem><listitem><para>sends the random position as the action server goal</para>
+</listitem><listitem><para>waits for the robot to reach the designated position</para>
+</listitem></itemizedlist>
+</para>
+</listitem></orderedlist>
+</para>
+</sect2>
+<sect2 id="md__r_e_a_d_m_e_1autotoc_md9">
+<title>URDF folder</title>
+<para>This folder contains the robot description. <ulink url="https://github.com/fedehub/rt2_assignment1/blob/action/urdf/my_robot.urdf">my_robot.urdf</ulink></para>
+</sect2>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md10">
+<title>Rqt-graph (ROS tool)</title>
+<para>By running the following command:</para>
+<para><programlisting><codeline><highlight class="normal">rosrun<sp/>rqt_graph<sp/>rqt_graph</highlight></codeline>
+</programlisting></para>
+<para>it is possible to show a dynamic graph, depicting what is going on within the System.</para>
+<para><image type="html" name="rosgraph.png" inline="yes"></image>
+</para>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md11">
+<title>Documentation</title>
+<para>The documentation of this project, obtained by means of <bold>DoxyGen</bold> is visible, within the <ulink url="https://github.com/fedehub/rt2_assignment1/tree/action/docs">docs</ulink> folder</para>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md12">
+<title>How to run the code</title>
+<para>The package contains the nodes and the simulation environment for controlling a mobile robot in the Gazebo simulation environment. To launch the node, please run: <programlisting><codeline><highlight class="normal">roslaunch<sp/>rt2_assignment1<sp/>sim.launch</highlight></codeline>
+</programlisting></para>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md13">
+<title>Release History</title>
+<para><itemizedlist>
+<listitem><para><computeroutput>0.1.0</computeroutput><itemizedlist>
+<listitem><para>The first proper release</para>
+</listitem></itemizedlist>
+</para>
+</listitem><listitem><para><computeroutput>0.0.1</computeroutput><itemizedlist>
+<listitem><para>Work in progress</para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md14">
+<title>Meta</title>
+<para>Federico Civetta– s4194543 – <ulink url="mailto:fedeunivers@gmail.com">fedeunivers@gmail.com</ulink></para>
+<para><ulink url="https://github.com/fedehub">https://github.com/fedehub</ulink></para>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md15">
+<title>Contributing</title>
+<para><orderedlist>
+<listitem><para>Fork it (<ulink url="https://github.com/fedehub/rt2_assignment1/fork">https://github.com/fedehub/rt2_assignment1/fork</ulink>)</para>
+</listitem><listitem><para>Create your feature branch (<computeroutput>git checkout -b feature/fooBar</computeroutput>)</para>
+</listitem><listitem><para>Commit your changes (<lsquo/>git commit -am &apos;Add some fooBar<rsquo/><computeroutput>)</computeroutput></para>
+</listitem><listitem><para><computeroutput>Push to the branch (</computeroutput>git push origin feature/fooBar`)</para>
+</listitem><listitem><para>Create a new Pull Request </para>
+</listitem></orderedlist>
+</para>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>
