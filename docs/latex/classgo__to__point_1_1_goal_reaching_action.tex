@@ -1,0 +1,255 @@
+\hypertarget{classgo__to__point_1_1_goal_reaching_action}{}\doxysection{go\+\_\+to\+\_\+point.\+Goal\+Reaching\+Action Class Reference}
+\label{classgo__to__point_1_1_goal_reaching_action}\index{go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}}
+
+
+Inheritance diagram for go\+\_\+to\+\_\+point.\+Goal\+Reaching\+Action\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{classgo__to__point_1_1_goal_reaching_action__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for go\+\_\+to\+\_\+point.\+Goal\+Reaching\+Action\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{classgo__to__point_1_1_goal_reaching_action__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classgo__to__point_1_1_goal_reaching_action_ad98a38215cc1277e37a38889c9b7c91b}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, name)
+\item 
+def \mbox{\hyperlink{classgo__to__point_1_1_goal_reaching_action_a8883d35ea6f016c7bc2c9ac6e3367f98}{execute\+\_\+cb}} (self, goal)
+\item 
+def \mbox{\hyperlink{classgo__to__point_1_1_goal_reaching_action_a0958917513d4deaae7f5091979c281c8}{change\+\_\+state}} (self, state)
+\item 
+def \mbox{\hyperlink{classgo__to__point_1_1_goal_reaching_action_a51249013da22ad9caa521c87048e7b4f}{normalize\+\_\+angle}} (self, angle)
+\item 
+def \mbox{\hyperlink{classgo__to__point_1_1_goal_reaching_action_a421d818d46da3ac2f08fe0c745f055c5}{fix\+\_\+yaw}} (self, des\+\_\+pos)
+\item 
+def \mbox{\hyperlink{classgo__to__point_1_1_goal_reaching_action_a560f079f00060a1dee2c765f7f11d967}{go\+\_\+straight\+\_\+ahead}} (self, des\+\_\+pos)
+\item 
+def \mbox{\hyperlink{classgo__to__point_1_1_goal_reaching_action_a8590a161935bcbdacc3619c3e5326f03}{fix\+\_\+final\+\_\+yaw}} (self, des\+\_\+yaw)
+\item 
+def \mbox{\hyperlink{classgo__to__point_1_1_goal_reaching_action_af1688a6e7d1f9407f69919e47b771611}{done}} (self)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgo__to__point_1_1_goal_reaching_action_a7748a29c7ff1c7f552469f41ef643b86}{execute\+\_\+cb}} = self.\+execute\+\_\+cb,
+\item 
+bool \mbox{\hyperlink{classgo__to__point_1_1_goal_reaching_action_a770ce77c9821bf33752fe588a2c8001e}{auto\+\_\+start}} = False)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}This is a the class representing the implementation of the 
+Goal action
+
+param object: A handle to the :class:`GoalReachingAction` client object 
+:type object: class:`GoalReachingAction`
+:param name: Device MAC address, defaults to None
+:type name:The action name 
+:param name: str\end{DoxyVerb}
+ 
+
+Definition at line 101 of file go\+\_\+to\+\_\+point.\+py.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgo__to__point_1_1_goal_reaching_action_ad98a38215cc1277e37a38889c9b7c91b}\label{classgo__to__point_1_1_goal_reaching_action_ad98a38215cc1277e37a38889c9b7c91b}} 
+\index{go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def go\+\_\+to\+\_\+point.\+Goal\+Reaching\+Action.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{name }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Constructor method 
+\end{DoxyVerb}
+ 
+
+Definition at line 120 of file go\+\_\+to\+\_\+point.\+py.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgo__to__point_1_1_goal_reaching_action_a0958917513d4deaae7f5091979c281c8}\label{classgo__to__point_1_1_goal_reaching_action_a0958917513d4deaae7f5091979c281c8}} 
+\index{go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}!change\_state@{change\_state}}
+\index{change\_state@{change\_state}!go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}}
+\doxysubsubsection{\texorpdfstring{change\_state()}{change\_state()}}
+{\footnotesize\ttfamily def go\+\_\+to\+\_\+point.\+Goal\+Reaching\+Action.\+change\+\_\+state (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{state }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the change_state function:
+
+This value retrieve and assigns the current state to the
+global one (*state_*)
+
+Args:
+  state(int): the state of the robot
+
+Returns:
+  None\end{DoxyVerb}
+ 
+
+Definition at line 198 of file go\+\_\+to\+\_\+point.\+py.
+
+\mbox{\Hypertarget{classgo__to__point_1_1_goal_reaching_action_af1688a6e7d1f9407f69919e47b771611}\label{classgo__to__point_1_1_goal_reaching_action_af1688a6e7d1f9407f69919e47b771611}} 
+\index{go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}!done@{done}}
+\index{done@{done}!go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}}
+\doxysubsubsection{\texorpdfstring{done()}{done()}}
+{\footnotesize\ttfamily def go\+\_\+to\+\_\+point.\+Goal\+Reaching\+Action.\+done (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of done function:
+    
+This function marks the goal target as succeeded, once all the
+linear and angular velocities are set to zero  
+    
+Args :
+  None
+    
+Returns :
+  None\end{DoxyVerb}
+ 
+
+Definition at line 335 of file go\+\_\+to\+\_\+point.\+py.
+
+\mbox{\Hypertarget{classgo__to__point_1_1_goal_reaching_action_a8883d35ea6f016c7bc2c9ac6e3367f98}\label{classgo__to__point_1_1_goal_reaching_action_a8883d35ea6f016c7bc2c9ac6e3367f98}} 
+\index{go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}!execute\_cb@{execute\_cb}}
+\index{execute\_cb@{execute\_cb}!go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}}
+\doxysubsubsection{\texorpdfstring{execute\_cb()}{execute\_cb()}}
+{\footnotesize\ttfamily def go\+\_\+to\+\_\+point.\+Goal\+Reaching\+Action.\+execute\+\_\+cb (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{goal }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the callback:
+
+This function takes as argument the goal variable whose value is
+provided from the action client in the state_machine.cpp. The feedback
+of the action message is constantly updated as the current pose of
+the robot. Then the desired_position is initialised as the goal of
+the action. To conclude with, the change_state function (which is responsible
+for the _state assignment) is given with argument zero so that the robot
+can start fixing its own yaw before proceeding by reaching the goal
+
+Args:
+  goal(Float): the robot postion goal
+
+Returns:
+  goal(float)\end{DoxyVerb}
+ 
+
+Definition at line 137 of file go\+\_\+to\+\_\+point.\+py.
+
+\mbox{\Hypertarget{classgo__to__point_1_1_goal_reaching_action_a8590a161935bcbdacc3619c3e5326f03}\label{classgo__to__point_1_1_goal_reaching_action_a8590a161935bcbdacc3619c3e5326f03}} 
+\index{go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}!fix\_final\_yaw@{fix\_final\_yaw}}
+\index{fix\_final\_yaw@{fix\_final\_yaw}!go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}}
+\doxysubsubsection{\texorpdfstring{fix\_final\_yaw()}{fix\_final\_yaw()}}
+{\footnotesize\ttfamily def go\+\_\+to\+\_\+point.\+Goal\+Reaching\+Action.\+fix\+\_\+final\+\_\+yaw (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{des\+\_\+yaw }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the fix_final_yaw function:
+
+This function computes the error between the desired robot
+orientation and the current one.
+
+Args:
+  des_yaw(Float): expected orientation
+
+Returns:
+  None\end{DoxyVerb}
+ 
+
+Definition at line 306 of file go\+\_\+to\+\_\+point.\+py.
+
+\mbox{\Hypertarget{classgo__to__point_1_1_goal_reaching_action_a421d818d46da3ac2f08fe0c745f055c5}\label{classgo__to__point_1_1_goal_reaching_action_a421d818d46da3ac2f08fe0c745f055c5}} 
+\index{go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}!fix\_yaw@{fix\_yaw}}
+\index{fix\_yaw@{fix\_yaw}!go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}}
+\doxysubsubsection{\texorpdfstring{fix\_yaw()}{fix\_yaw()}}
+{\footnotesize\ttfamily def go\+\_\+to\+\_\+point.\+Goal\+Reaching\+Action.\+fix\+\_\+yaw (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{des\+\_\+pos }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the fix_yaw function:
+
+This function computes the robot orientation among x and y 
+coordinates and sets the angular velocity needed for achieving
+the desired robot position. 
+   
+Args:
+  des_pos(Point):  the expected x and y coordinates
+
+Returns:
+   None\end{DoxyVerb}
+ 
+
+Definition at line 231 of file go\+\_\+to\+\_\+point.\+py.
+
+\mbox{\Hypertarget{classgo__to__point_1_1_goal_reaching_action_a560f079f00060a1dee2c765f7f11d967}\label{classgo__to__point_1_1_goal_reaching_action_a560f079f00060a1dee2c765f7f11d967}} 
+\index{go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}!go\_straight\_ahead@{go\_straight\_ahead}}
+\index{go\_straight\_ahead@{go\_straight\_ahead}!go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}}
+\doxysubsubsection{\texorpdfstring{go\_straight\_ahead()}{go\_straight\_ahead()}}
+{\footnotesize\ttfamily def go\+\_\+to\+\_\+point.\+Goal\+Reaching\+Action.\+go\+\_\+straight\+\_\+ahead (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{des\+\_\+pos }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the go_straight_ahead function:
+
+This function computes the robot orientation among x and y 
+coordinates necessary to reach the x,y target point. Once the
+linear velocities have been set, an angular velocity is defined
+by means of an error. It is proportional to this latter and it 
+allows a correction of the trajectory, by checking a treshold
+over a distance
+   
+   
+Args:
+  des_pos(Point): the expected x and y coordinates
+
+Returns:
+  None\end{DoxyVerb}
+ 
+
+Definition at line 264 of file go\+\_\+to\+\_\+point.\+py.
+
+\mbox{\Hypertarget{classgo__to__point_1_1_goal_reaching_action_a51249013da22ad9caa521c87048e7b4f}\label{classgo__to__point_1_1_goal_reaching_action_a51249013da22ad9caa521c87048e7b4f}} 
+\index{go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}!normalize\_angle@{normalize\_angle}}
+\index{normalize\_angle@{normalize\_angle}!go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}}
+\doxysubsubsection{\texorpdfstring{normalize\_angle()}{normalize\_angle()}}
+{\footnotesize\ttfamily def go\+\_\+to\+\_\+point.\+Goal\+Reaching\+Action.\+normalize\+\_\+angle (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{angle }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Function for normalizing the angle between -pi and pi.
+
+Args:
+  angle(Float): the input angle
+
+Returns:
+  angle(Float): the normalized angle.\end{DoxyVerb}
+ 
+
+Definition at line 216 of file go\+\_\+to\+\_\+point.\+py.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classgo__to__point_1_1_goal_reaching_action_a770ce77c9821bf33752fe588a2c8001e}\label{classgo__to__point_1_1_goal_reaching_action_a770ce77c9821bf33752fe588a2c8001e}} 
+\index{go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}!auto\_start@{auto\_start}}
+\index{auto\_start@{auto\_start}!go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}}
+\doxysubsubsection{\texorpdfstring{auto\_start}{auto\_start}}
+{\footnotesize\ttfamily bool go\+\_\+to\+\_\+point.\+Goal\+Reaching\+Action.\+auto\+\_\+start = False)\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 131 of file go\+\_\+to\+\_\+point.\+py.
+
+\mbox{\Hypertarget{classgo__to__point_1_1_goal_reaching_action_a7748a29c7ff1c7f552469f41ef643b86}\label{classgo__to__point_1_1_goal_reaching_action_a7748a29c7ff1c7f552469f41ef643b86}} 
+\index{go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}!execute\_cb@{execute\_cb}}
+\index{execute\_cb@{execute\_cb}!go\_to\_point.GoalReachingAction@{go\_to\_point.GoalReachingAction}}
+\doxysubsubsection{\texorpdfstring{execute\_cb}{execute\_cb}}
+{\footnotesize\ttfamily go\+\_\+to\+\_\+point.\+Goal\+Reaching\+Action.\+execute\+\_\+cb = self.\+execute\+\_\+cb,\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 130 of file go\+\_\+to\+\_\+point.\+py.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+scripts/\mbox{\hyperlink{go__to__point_8py}{go\+\_\+to\+\_\+point.\+py}}\end{DoxyCompactItemize}

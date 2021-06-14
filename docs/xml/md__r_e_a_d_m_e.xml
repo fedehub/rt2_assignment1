@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="md__r_e_a_d_m_e" kind="page">
+    <compoundname>md_README</compoundname>
+    <title>First Assignment of the Research Track 2 course - Sphinx  branch</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md1">
+<title>Table of contents</title>
+<para><itemizedlist>
+<listitem><para>Index<itemizedlist>
+<listitem><para><ulink url="#description-of-the-branch">Description of the branch</ulink></para>
+</listitem></itemizedlist>
+</para>
+</listitem></itemizedlist>
+</para>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md2">
+<title>Description of the branch</title>
+<para>Here it is possible to find the <computeroutput>Sphinx documentation</computeroutput> by inspecting the folder <ulink url="https://github.com/fedehub/rt2_assignment1/tree/sphinx/_build">_build</ulink> and opening the <bold>index.html</bold> file. <blockquote><para>To see the &quot;action&quot; documentation, please refer to <ulink url="https://github.com/fedehub/rt2_assignment1/tree/action/docs">docs</ulink> folder </para>
+</blockquote></para>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>
