@@ -17,7 +17,7 @@
 <codeline><highlight class="normal">##<sp/>Description<sp/>of<sp/>the<sp/>branch</highlight></codeline>
 <codeline></codeline>
 <codeline><highlight class="normal">Here<sp/>it<sp/>is<sp/>possible<sp/>to<sp/>find<sp/>the<sp/>`Sphinx<sp/>documentation`<sp/>by<sp/>inspecting<sp/>the<sp/>folder<sp/>[_build](https://github.com/fedehub/rt2_assignment1/tree/sphinx/_build)<sp/>and<sp/>opening<sp/>the<sp/>**index.html**<sp/>file.<sp/></highlight></codeline>
-<codeline><highlight class="normal">&gt;<sp/>To<sp/>see<sp/>the<sp/>&quot;action&quot;<sp/>documentation,<sp/>please<sp/>refer<sp/>to<sp/>[docs](https://github.com/fedehub/rt2_assignment1/tree/action/docs)<sp/>folder</highlight></codeline>
+<codeline><highlight class="normal">&gt;<sp/>To<sp/>see<sp/>the<sp/>&quot;action&quot;<sp/>documentation,<sp/>made<sp/>with<sp/>`doxygen`,<sp/>please<sp/>refer<sp/>to<sp/>[docs](https://github.com/fedehub/rt2_assignment1/tree/action/docs)<sp/>folder</highlight></codeline>
 <codeline></codeline>
     </programlisting>
     <location file="README.md"/>

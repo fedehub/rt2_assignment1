@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lb_5fa_98',['lb_a',['../namespacego__to__point.html#afecad4058844db05d8321199e25b4498',1,'go_to_point']]]
+  ['jun_101',['Jun',['../index_8rst_8txt.html#a296d7f94872cb0cb1ccf9da5acee5ea0',1,'index.rst.txt']]]
 ];

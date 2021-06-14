@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['kp_5fa_28',['kp_a',['../namespacego__to__point.html#a524106fc7667a0927951dfd89d52d6a7',1,'go_to_point']]],
-  ['kp_5fd_29',['kp_d',['../namespacego__to__point.html#a7bc498652ca66932e704e738b50c297b',1,'go_to_point']]]
+  ['jun_30',['Jun',['../index_8rst_8txt.html#a296d7f94872cb0cb1ccf9da5acee5ea0',1,'index.rst.txt']]]
 ];

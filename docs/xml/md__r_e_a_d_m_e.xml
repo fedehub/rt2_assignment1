@@ -18,7 +18,7 @@
 </sect1>
 <sect1 id="md__r_e_a_d_m_e_1autotoc_md2">
 <title>Description of the branch</title>
-<para>Here it is possible to find the <computeroutput>Sphinx documentation</computeroutput> by inspecting the folder <ulink url="https://github.com/fedehub/rt2_assignment1/tree/sphinx/_build">_build</ulink> and opening the <bold>index.html</bold> file. <blockquote><para>To see the &quot;action&quot; documentation, please refer to <ulink url="https://github.com/fedehub/rt2_assignment1/tree/action/docs">docs</ulink> folder </para>
+<para>Here it is possible to find the <computeroutput>Sphinx documentation</computeroutput> by inspecting the folder <ulink url="https://github.com/fedehub/rt2_assignment1/tree/sphinx/_build">_build</ulink> and opening the <bold>index.html</bold> file. <blockquote><para>To see the &quot;action&quot; documentation, made with <computeroutput>doxygen</computeroutput>, please refer to <ulink url="https://github.com/fedehub/rt2_assignment1/tree/action/docs">docs</ulink> folder </para>
 </blockquote></para>
 </sect1>
     </detaileddescription>
