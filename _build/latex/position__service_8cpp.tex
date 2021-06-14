@@ -2,7 +2,7 @@
 \label{position__service_8cpp}\index{src/position\_service.cpp@{src/position\_service.cpp}}
 
 
-Node implementing the R\+OS service for gettinf random position.  
+Node implementing the R\+OS service for getting random position.  
 
 
 {\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
@@ -21,13 +21,12 @@ double \mbox{\hyperlink{position__service_8cpp_a10f83119b77a8fbd085a5550955f85ff
 \begin{DoxyCompactList}\small\item\em Random number generator. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{position__service_8cpp_ab65b9ff5368189ad34fe4989d50742e4}{myrandom}} (rt2\+\_\+assignment1\+::\+Random\+Position\+::\+Request \&req, rt2\+\_\+assignment1\+::\+Random\+Position\+::\+Response \&res)
 \begin{DoxyCompactList}\small\item\em This function is the callback of the service server. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{position__service_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{position__service_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
-int {\bfseries main} (int argc, char $\ast$$\ast$argv)
-\end{DoxyCompactItemize}
+int \mbox{\hyperlink{position__service_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em main function \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Node implementing the R\+OS service for gettinf random position. 
+Node implementing the R\+OS service for getting random position. 
 
 \begin{DoxyAuthor}{Author}
 Federico Civetta 
@@ -38,23 +37,36 @@ Federico Civetta
 \begin{DoxyDate}{Date}
 13/06/2021
 \end{DoxyDate}
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em world\+\_\+width} & Definte the width of the discretized world\\
-\hline
-\end{DoxyParams}
 Subscribes to\+: ~\newline
- /robot\+\_\+behavior\+\_\+state Publishes to\+: ~\newline
- /\+Play\+With\+Robot
+ None
+
+Publishes to\+: ~\newline
+ None
 
 Services\+: ~\newline
  /position\+\_\+server
 
-Description\+:
+Description\+: ~\newline
+
 
 This node advertises a position service. When the service is require, a request containing the minimum and the maximum values for the x and y position is used to generate a random position between x (or y) min and x (or y) max. 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{position__service_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{position__service_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{position\_service.cpp@{position\_service.cpp}!main@{main}}
+\index{main@{main}!position\_service.cpp@{position\_service.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+main function 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & This function initializes the server /position\+\_\+server, and the ros node (random\+\_\+position\+\_\+server) Then, while running, it waits for a request adressed to the server \\
+\hline
+\end{DoxyRetVals}
 \mbox{\Hypertarget{position__service_8cpp_ab65b9ff5368189ad34fe4989d50742e4}\label{position__service_8cpp_ab65b9ff5368189ad34fe4989d50742e4}} 
 \index{position\_service.cpp@{position\_service.cpp}!myrandom@{myrandom}}
 \index{myrandom@{myrandom}!position\_service.cpp@{position\_service.cpp}}
@@ -74,10 +86,10 @@ This function is the callback of the service server.
 \end{DoxyParams}
 
 \begin{DoxyRetVals}{Return values}
-{\em the} & boolean \\
+{\em the} & boolean True\\
 \hline
 \end{DoxyRetVals}
-\mbox{\Hypertarget{position__service_8cpp_a10f83119b77a8fbd085a5550955f85ff}\label{position__service_8cpp_a10f83119b77a8fbd085a5550955f85ff}} 
+This function exploits the rand function, which returns a pseudo-\/random integral number in the range between 0 and R\+A\+N\+D\+\_\+\+M\+AX. It is called when a request from the client is received. \mbox{\Hypertarget{position__service_8cpp_a10f83119b77a8fbd085a5550955f85ff}\label{position__service_8cpp_a10f83119b77a8fbd085a5550955f85ff}} 
 \index{position\_service.cpp@{position\_service.cpp}!randMToN@{randMToN}}
 \index{randMToN@{randMToN}!position\_service.cpp@{position\_service.cpp}}
 \doxysubsubsection{\texorpdfstring{randMToN()}{randMToN()}}

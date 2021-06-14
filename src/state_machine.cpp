@@ -1,4 +1,4 @@
-/** @ package rt2_assignment1
+/** @package rt2_assignment1
 * 
 * @file state_machine.cpp
 * @brief Node describing the state machine implementation 
@@ -8,20 +8,26 @@
 * @date 13/06/2021
 *
 *
-* @param [in] world_width Definte the width of the discretized world
 *
 * @details 
 *
 * Subscribes to: <BR>
-*  /robot_behavior_state
+*    None
+* 
 * Publishes to: <BR>
-*  /PlayWithRobot
+*    None
+* 
+* Client: <BR>
+*    /position_server
+* 	
+* 
+* Actiom Client: <BR>
+*    /go_to_point
 *
 * Services: <BR>
 *  /user_interface
-*  /position_server
 *
-* Description:
+* Description: <BR>
 *
 * By means of an user interface, the user is able of making the robot starts 
 * by entering the 1 integer value, the robot starts moving. There is one boolean 
@@ -46,7 +52,13 @@ bool start = false;
  *@brief This function is the callback function of the service for server.
  *@param req  the request received from the client of the user_interface.py. 
  *@param res  the response has not been used 
+ * 
  *@retval A boolean value
+ * 
+ * This function allows to initialize the global variable *"start"* to true
+ * wether the command received consists in a "start" string. Otherwise, it is
+ * initialized as *"false"*
+ * 
  */
 
 bool user_interface(rt2_assignment1::Command::Request &req, rt2_assignment1::Command::Response &res){
@@ -64,6 +76,26 @@ bool user_interface(rt2_assignment1::Command::Request &req, rt2_assignment1::Com
     return true;
 }
 
+/**
+ * @brief The main function
+ * 
+ * @retval 0
+ * 
+ * This function implements:
+ * -# the state_machine node
+ * -# the service
+ * -# the client
+ * -# the action client
+ * -# the two custom messages RandomPosition and GoalReachingGoal
+ * If start var is set to "true", then we call the RandomPosition service
+ * and we wait for the action server to start. Once started, the goal fields
+ * are populated with the retrieved random values. Then, the goal is sent 
+ * to the action server. Then a check over the robot achievement within a specifed 
+ * time interval has been configured.
+ * 
+ *
+ * 
+ */
 
 int main(int argc, char **argv)
 {
@@ -92,7 +124,7 @@ int main(int argc, char **argv)
    
    while(ros::ok()){
    	ros::spinOnce();
-      /* if star var is True*/ 
+      /* if start var is True*/ 
    	if (start){
          /* call for the Service random position */
    		client_rp.call(rp);

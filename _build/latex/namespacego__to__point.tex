@@ -8,11 +8,9 @@ class \mbox{\hyperlink{classgo__to__point_1_1_goal_reaching_action}{Goal\+Reachi
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{namespacego__to__point_a36304a9f313b0579f7fc69fa01695524}\label{namespacego__to__point_a36304a9f313b0579f7fc69fa01695524}} 
-def {\bfseries clbk\+\_\+odom} (msg)
+def \mbox{\hyperlink{namespacego__to__point_a36304a9f313b0579f7fc69fa01695524}{clbk\+\_\+odom}} (msg)
 \item 
-\mbox{\Hypertarget{namespacego__to__point_ab92bd6db1ec323a4d795ed6cb40aebe1}\label{namespacego__to__point_ab92bd6db1ec323a4d795ed6cb40aebe1}} 
-def {\bfseries main} ()
+def \mbox{\hyperlink{namespacego__to__point_ab92bd6db1ec323a4d795ed6cb40aebe1}{main}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
@@ -62,7 +60,9 @@ float {\bfseries ub\+\_\+d} = 0.\+6
 
 .. moduleauthor:: Federico fedeunivers@gmail.com
 
-ROS node for driving a robot to a specific point
+ROS node for driving a robot to a specific point within a simulated
+environment, given a certain orientation. To start with, the robot tries
+to orient itself accordingly to the target goal.
 
 Subscribes to:
 /odom topic where the simulator publishes the robot position
@@ -71,6 +71,45 @@ Publishes to:
 /cmd_vel the desired robot position
 
 Service :
-/go_to_point to start the robot motion.
-\end{DoxyVerb}
+/go_to_point to start the robot motion.\end{DoxyVerb}
+ 
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacego__to__point_a36304a9f313b0579f7fc69fa01695524}\label{namespacego__to__point_a36304a9f313b0579f7fc69fa01695524}} 
+\index{go\_to\_point@{go\_to\_point}!clbk\_odom@{clbk\_odom}}
+\index{clbk\_odom@{clbk\_odom}!go\_to\_point@{go\_to\_point}}
+\doxysubsubsection{\texorpdfstring{clbk\_odom()}{clbk\_odom()}}
+{\footnotesize\ttfamily def go\+\_\+to\+\_\+point.\+clbk\+\_\+odom (\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the callback:
+
+This function retrieves the current robot position for saving
+it within the *position_* global variable and is responsible for
+transforming the orientation from quaternion angles to Euler ones
+
+Args:
+  msg(Twist): data retrieved by */cmd_vel* topic
+
+Returns:
+  None\end{DoxyVerb}
+ \mbox{\Hypertarget{namespacego__to__point_ab92bd6db1ec323a4d795ed6cb40aebe1}\label{namespacego__to__point_ab92bd6db1ec323a4d795ed6cb40aebe1}} 
+\index{go\_to\_point@{go\_to\_point}!main@{main}}
+\index{main@{main}!go\_to\_point@{go\_to\_point}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily def go\+\_\+to\+\_\+point.\+main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}Description of the main function:
+       
+As the go_to_point node is called it runs. Here the node
+gets initialized and the server needed for the :class:`GoalReachingAction`
+is declared.
+Moreover, a global variable is needed (*pub_*) for defining
+a publisher to the */cmd_vel* topic.ß
+       
+
+Args :
+  None
+
+Returns :
+  None\end{DoxyVerb}
  

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['normalize_5fangle_76',['normalize_angle',['../namespacego__to__point.html#a1cd6e02fd38e089c594553582950ddff',1,'go_to_point']]]
+  ['normalize_5fangle_33',['normalize_angle',['../classgo__to__point_1_1_goal_reaching_action.html#a51249013da22ad9caa521c87048e7b4f',1,'go_to_point::GoalReachingAction']]]
 ];

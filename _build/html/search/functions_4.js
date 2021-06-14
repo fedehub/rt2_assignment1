@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['user_5finterface_18',['user_interface',['../state__machine_8cpp.html#a1a9543636935547580c0657f4c7c0c2b',1,'state_machine.cpp']]]
+  ['fix_5ffinal_5fyaw_28',['fix_final_yaw',['../classgo__to__point_1_1_goal_reaching_action.html#a8590a161935bcbdacc3619c3e5326f03',1,'go_to_point::GoalReachingAction']]],
+  ['fix_5fyaw_29',['fix_yaw',['../classgo__to__point_1_1_goal_reaching_action.html#a421d818d46da3ac2f08fe0c745f055c5',1,'go_to_point::GoalReachingAction']]]
 ];

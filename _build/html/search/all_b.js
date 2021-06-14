@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lb_5fa_29',['lb_a',['../namespacego__to__point.html#afecad4058844db05d8321199e25b4498',1,'go_to_point']]]
+  ['user_5finterface_17',['user_interface',['../namespaceuser__interface.html',1,'user_interface'],['../state__machine_8cpp.html#a1a9543636935547580c0657f4c7c0c2b',1,'user_interface(rt2_assignment1::Command::Request &amp;req, rt2_assignment1::Command::Response &amp;res):&#160;state_machine.cpp']]]
 ];

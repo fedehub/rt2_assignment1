@@ -23,9 +23,8 @@ Include dependency graph for state\+\_\+machine.\+cpp\+:\nopagebreak
 \item 
 bool \mbox{\hyperlink{state__machine_8cpp_a1a9543636935547580c0657f4c7c0c2b}{user\+\_\+interface}} (rt2\+\_\+assignment1\+::\+Command\+::\+Request \&req, rt2\+\_\+assignment1\+::\+Command\+::\+Response \&res)
 \begin{DoxyCompactList}\small\item\em This function is the callback function of the service for server. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{state__machine_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{state__machine_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
-int {\bfseries main} (int argc, char $\ast$$\ast$argv)
-\end{DoxyCompactItemize}
+int \mbox{\hyperlink{state__machine_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em The main function. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -46,24 +45,50 @@ Federico Civetta
 \begin{DoxyDate}{Date}
 13/06/2021
 \end{DoxyDate}
-
-\begin{DoxyParams}[1]{Parameters}
-\mbox{\texttt{ in}}  & {\em world\+\_\+width} & Definte the width of the discretized world\\
-\hline
-\end{DoxyParams}
 Subscribes to\+: ~\newline
- /robot\+\_\+behavior\+\_\+state Publishes to\+: ~\newline
- /\+Play\+With\+Robot
+ None
+
+Publishes to\+: ~\newline
+ None
+
+Client\+: ~\newline
+ /position\+\_\+server
+
+Actiom Client\+: ~\newline
+ /go\+\_\+to\+\_\+point
 
 Services\+: ~\newline
- /user\+\_\+interface /position\+\_\+server
+ /user\+\_\+interface
 
-Description\+:
+Description\+: ~\newline
+
 
 By means of an user interface, the user is able of making the robot starts by entering the 1 integer value, the robot starts moving. There is one boolean value which becomes true and then call the\begin{DoxyVerb}position_service.cpp  \end{DoxyVerb}
  which retrieves the random goal position to reach from the Random\+Position.\+srv custom service, sends the random position as the action server goal, waits for the robot to reach the designated position 
 
 \doxysubsection{Function Documentation}
+\mbox{\Hypertarget{state__machine_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{state__machine_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{state\_machine.cpp@{state\_machine.cpp}!main@{main}}
+\index{main@{main}!state\_machine.cpp@{state\_machine.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+The main function. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em 0} & This function implements\+:
+\begin{DoxyEnumerate}
+\item the state\+\_\+machine node
+\item the service
+\item the client
+\item the action client
+\item the two custom messages Random\+Position and Goal\+Reaching\+Goal If start var is set to \char`\"{}true\char`\"{}, then we call the Random\+Position service and we wait for the action server to start. Once started, the goal fields are populated with the retrieved random values. Then, the goal is sent to the action server. Then a check over the robot achievement within a specifed time interval has been configured. 
+\end{DoxyEnumerate}\\
+\hline
+\end{DoxyRetVals}
 \mbox{\Hypertarget{state__machine_8cpp_a1a9543636935547580c0657f4c7c0c2b}\label{state__machine_8cpp_a1a9543636935547580c0657f4c7c0c2b}} 
 \index{state\_machine.cpp@{state\_machine.cpp}!user\_interface@{user\_interface}}
 \index{user\_interface@{user\_interface}!state\_machine.cpp@{state\_machine.cpp}}
@@ -78,11 +103,12 @@ This function is the callback function of the service for server.
 \begin{DoxyParams}{Parameters}
 {\em req} & the request received from the client of the user\+\_\+interface.\+py. \\
 \hline
-{\em res} & the response has not been used \\
+{\em res} & the response has not been used\\
 \hline
 \end{DoxyParams}
 
 \begin{DoxyRetVals}{Return values}
-{\em A} & boolean value \\
+{\em A} & boolean value\\
 \hline
 \end{DoxyRetVals}
+This function allows to initialize the global variable $\ast$\char`\"{}start\char`\"{}$\ast$ to true wether the command received consists in a \char`\"{}start\char`\"{} string. Otherwise, it is initialized as $\ast$\char`\"{}false\char`\"{}$\ast$ 

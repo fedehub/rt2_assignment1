@@ -3,7 +3,7 @@
   <compounddef id="namespaceuser__interface" kind="namespace" language="Python">
     <compoundname>user_interface</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="user__interface_8py_1ac26bdb296b6776907b72c17ce5a1b24a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceuser__interface_1ac26bdb296b6776907b72c17ce5a1b24a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>def</type>
         <definition>def user_interface.main</definition>
         <argsstring>()</argsstring>
@@ -14,12 +14,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="scripts/user_interface.py" line="21" column="1" bodyfile="scripts/user_interface.py" bodystart="21" bodyend="51"/>
+        <location file="scripts/user_interface.py" line="39" column="1" bodyfile="scripts/user_interface.py" bodystart="39" bodyend="69"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para><verbatim>.. module:: user_interface
+    :platform: Unix
+    :synopsis: Python module for piloting the robot to the target
+
+.. moduleauthor:: Federico fedeunivers@gmail.com
+
+ROS node for driving a robot to a specific point
+
+Subscribes to:
+/odom topic where the simulator publishes the robot position
+
+Publishes to:
+/cmd_vel the desired robot position
+
+Service :
+/go_to_point to start the robot motion.</verbatim> </para>
     </detaileddescription>
     <location file="scripts/user_interface.py" line="1" column="1"/>
   </compounddef>

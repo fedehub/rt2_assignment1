@@ -1,5 +1,23 @@
 #! /usr/bin/env python
+"""
+.. module:: user_interface
+    :platform: Unix
+    :synopsis: Python module for piloting the robot to the target
 
+.. moduleauthor:: Federico fedeunivers@gmail.com
+
+ROS node for driving a robot to a specific point
+
+Subscribes to:
+/odom topic where the simulator publishes the robot position
+
+Publishes to:
+/cmd_vel the desired robot position
+
+Service :
+/go_to_point to start the robot motion.
+
+"""
 import rospy
 import time
 from rt2_assignment1.srv import Command

@@ -53,8 +53,10 @@
     <member refid="namespacego__to__point_1a36304a9f313b0579f7fc69fa01695524" kind="function"><name>clbk_odom</name></member>
     <member refid="namespacego__to__point_1ab92bd6db1ec323a4d795ed6cb40aebe1" kind="function"><name>main</name></member>
   </compound>
+  <compound refid="namespacert2__assignment1" kind="namespace"><name>rt2_assignment1</name>
+  </compound>
   <compound refid="namespaceuser__interface" kind="namespace"><name>user_interface</name>
-    <member refid="user__interface_8py_1ac26bdb296b6776907b72c17ce5a1b24a" kind="function"><name>main</name></member>
+    <member refid="namespaceuser__interface_1ac26bdb296b6776907b72c17ce5a1b24a" kind="function"><name>main</name></member>
   </compound>
   <compound refid="_c_make_lists_8txt" kind="file"><name>CMakeLists.txt</name>
   </compound>

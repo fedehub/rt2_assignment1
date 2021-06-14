@@ -1,25 +1,25 @@
-/**@ package rt2_assignment1
+/**@package rt2_assignment1
 * 
 * @file position_service.cpp
-* @brief Node implementing the ROS service for gettinf random position
+* @brief Node implementing the ROS service for getting random position
 * @author Federico Civetta
 * @version 0.1
 * @date 13/06/2021
 *
-*
-* @param [in] world_width Definte the width of the discretized world
+
 *
 * @details 
 *
 * Subscribes to: <BR>
-*  /robot_behavior_state
+*    None
+* 
 * Publishes to: <BR>
-*  /PlayWithRobot
+*    None 
 *
 * Services: <BR>
 *  /position_server
 *
-* Description:
+* Description: <BR>
 *
 * This node advertises a position service. When the service is require, a request
 * containing the minimum and the maximum values for the x and y position is used
@@ -49,8 +49,10 @@ double randMToN(double M, double N)
  * @param req  the request received from the client. It gets two intervals of values for x and y 
  * @param res  the response returned to the client (the random coordinates within a specific interval)
  * 
- * @retval the boolean 
+ * @retval the boolean True
  * 
+ * This function exploits the rand  function, which returns a pseudo-random integral number in the range 
+ * between 0 and RAND_MAX. It is called when a request from the client is received. 
  * 
  */
 bool myrandom (rt2_assignment1::RandomPosition::Request &req, rt2_assignment1::RandomPosition::Response &res){
@@ -60,7 +62,17 @@ bool myrandom (rt2_assignment1::RandomPosition::Request &req, rt2_assignment1::R
     return true;
 }
 
-
+/**
+ * @brief  main function
+ * 
+ * @retval 0
+ * 
+ * This function initializes the server /position_server,
+ * and the ros node (random_position_server)
+ * Then, while running, it waits for a request adressed to the server
+ * 
+ */
+ 
 int main(int argc, char **argv)
 {
 
