@@ -7,6 +7,7 @@
     - [Launch folder](#launch-folder)
     - [Srv folder](#srv-folder)
     - [Src folder](#src-folder)
+    - [mapping rule](#mapping-rule)
   - [Rqt-graph (ROS tool)](#rqt-graph-ros-tool)
   - [How to launch](#how-to-launch)
   - [Documentation](#documentation)
@@ -33,9 +34,9 @@ The `go_to_point` has been implemented as a service. Also:
 2. a **script** to launch all required nodes and the simulation, has been implemented
 
 ### Launch folder
-It contains two different files:
+It contains a script file:
 1. [all_launch.py](https://github.com/fedehub/rt2_assignment1/blob/ros2/launch/all_launch.py): this script allow us to launch the **container manager** where all the *composable nodes* are contained
-2. [sim2.launch](https://github.com/fedehub/rt2_assignment1/blob/ros2/launch/sim2.launch): This launch file permits to launch the overall simulation (by also involving the `goToPoint` and the `userInterface` nodes)
+
 
 ### Srv folder
 It contains three different files:
@@ -44,9 +45,13 @@ It contains three different files:
 3. [RandomPosition.srv](https://github.com/fedehub/rt2_assignment1/blob/ros2/srv/RandomPosition.srv)
 ### Src folder 
 As already mentioned a few paragraphs above, within this folder, it is possible to see the implementation of:
-* [position_service.cpp](https://github.com/fedehub/rt2_assignment1/blob/ros2/src/position_service.cpp)
+* [position_service.cpp](https://github.com/fedehub/rt2_assignment1/blob/ros2/src/position_service.cpp) It is implemented as a *service Server* Node and it replies with random values for x,y and theta where x and y should be limited between some max and min values (given as request)
 * [state_machine.cpp](https://github.com/fedehub/rt2_assignment1/blob/ros2/src/state_machine.cpp)
 The beahviour of these two nodes is the same of the main branch ones, with the unique exeption that these are compatble with ROS2. 
+
+## Mapping Rule
+
+We need to create a [mapping_rules.yaml]() file in the ROS2 package for compiling the bridge 
 
 ## Rqt-graph (ROS tool)
 
